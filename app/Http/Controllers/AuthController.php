@@ -6,6 +6,9 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * @group Auth
+ */
 class AuthController extends Controller
 {
     public function __construct()
@@ -14,7 +17,10 @@ class AuthController extends Controller
     }
 
     /**
-     * Get a JWT via given credentials.
+     * Get token
+     *
+     * @bodyParam email string required User email. Example: example@email.com
+     * @bodyParam password string required User password. Example: 123456
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -30,7 +36,9 @@ class AuthController extends Controller
     }
 
     /**
-     * Get the authenticated User.
+     * Get authenticated user
+     *
+     * @authenticated
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -41,7 +49,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Log the user out (Invalidate the token).
+     * Logout user
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -53,7 +61,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Refresh a token.
+     * Refresh token
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -68,10 +76,9 @@ class AuthController extends Controller
     }
 
     /**
-     * Get the token array structure.
+     * Get the token array structure
      *
-     * @param  string $token
-     *
+     * @param $token
      * @return \Illuminate\Http\JsonResponse
      */
     protected function respondWithToken($token)

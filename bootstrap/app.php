@@ -29,6 +29,42 @@ $app->withFacades();
 
 $app->withEloquent();
 
+
+
+
+
+
+
+
+
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+(new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
+    dirname(__DIR__)
+))->bootstrap();
+
+date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
+
+/*
+|--------------------------------------------------------------------------
+| Create The Application
+|--------------------------------------------------------------------------
+|
+| Here we will load the environment and create the application instance
+| that serves as the central piece of this framework. We'll use this
+| application as an "IoC" container and router for this framework.
+|
+*/
+
+$app = new Laravel\Lumen\Application(
+    dirname(__DIR__)
+);
+
+$app->withFacades();
+
+$app->withEloquent();
+
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
@@ -52,6 +88,22 @@ $app->singleton(
 
 /*
 |--------------------------------------------------------------------------
+| Register Config Files
+|--------------------------------------------------------------------------
+|
+| Now we will register the "app" configuration file. If the file exists in
+| your configuration directory it will be loaded; otherwise, we'll load
+| the default version. You may register other files below as needed.
+|
+*/
+
+$app->configure('app');
+$app->configure('apidoc');
+$app->configure('auth');
+$app->configure('database');
+
+/*
+|--------------------------------------------------------------------------
 | Register Middleware
 |--------------------------------------------------------------------------
 |
@@ -62,7 +114,6 @@ $app->singleton(
 */
 
 $app->middleware([
-    // App\Http\Middleware\ExampleMiddleware::class
     App\Http\Middleware\CORSMiddleware::class,
     App\Http\Middleware\ThrottleRequests::class
 ]);
