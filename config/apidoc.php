@@ -203,6 +203,7 @@ return [
         ],
         'headers' => [
             \Mpociot\ApiDoc\Extracting\Strategies\RequestHeaders\GetFromRouteRules::class,
+            \App\Plugins\AddBearerInAuthenticatedHeader::class,
         ],
         'bodyParameters' => [
             \Mpociot\ApiDoc\Extracting\Strategies\BodyParameters\GetFromBodyParamTag::class,

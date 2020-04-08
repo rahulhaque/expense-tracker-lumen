@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Income;
 use App\IncomeCategory;
+use App\IncomeExpense;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
+/**
+ * @group Income Category
+ * @authenticated
+ */
 class IncomeCategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get income categories
      *
      * @return \Illuminate\Http\Response
      * @throws \Illuminate\Validation\ValidationException
@@ -44,7 +48,9 @@ class IncomeCategoryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store income category
+     *
+     * @bodyParam category_name string required - Example: Salary
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -70,7 +76,9 @@ class IncomeCategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show a category info
+     *
+     * @urlParam id required Category id to show Example: 1
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -81,7 +89,10 @@ class IncomeCategoryController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update a category
+     *
+     * @urlParam id required Category id to update Example: 1
+     * @bodyParam category_name string required New category name to update Example: Profit
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
@@ -110,14 +121,16 @@ class IncomeCategoryController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete a category
+     *
+     * @urlParam id required Category id to delete Example: 1
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $incomeByCategoryId = Income::where('category_id', $id)->first();
+        $incomeByCategoryId = IncomeExpense::where('transaction_type', 'Income')->where('category_id', $id)->first();
         $incomeCategoryById = IncomeCategory::find($id);
 
         if ($incomeByCategoryId ||

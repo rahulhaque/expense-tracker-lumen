@@ -51,6 +51,8 @@ class AuthController extends Controller
     /**
      * Logout user
      *
+     * @authenticated
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function logout()
@@ -62,6 +64,8 @@ class AuthController extends Controller
 
     /**
      * Refresh token
+     *
+     * @authenticated
      *
      * @return \Illuminate\Http\JsonResponse
      */
