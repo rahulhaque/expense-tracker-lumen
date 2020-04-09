@@ -27,7 +27,7 @@ Basic features include -
 
 ## Documentation
 
-- Go to `http://localhost:8000/docs` to get detailed API documentation
+- API documentation can be found [here](https://rahulhaque.github.io/expense-tracker-lumen/index.html).
 
 The static API documentation can be found found at `/public/docs` folder.
 
