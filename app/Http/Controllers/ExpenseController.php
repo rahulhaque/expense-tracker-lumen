@@ -7,12 +7,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @group Expense
+ * @authenticated
+ */
 class ExpenseController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get expenses
      *
-     * url: /api/v1/expense
+     * @url: /api/v1/expense
      *
      * @param Request $request
      * @return \Illuminate\Http\Response
@@ -57,9 +61,15 @@ class ExpenseController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store expense
      *
-     * url: /api/v1/expense
+     * @bodyParam expense_date datetime required Expense date Example: 2020-03-30 21:08:36
+     * @bodyParam category_id int required Expense category id Example: 1
+     * @bodyParam amount double required Expense amount Example: 100.00
+     * @bodyParam spent_on string required Expense reason Example: Breakfast
+     * @bodyParam remarks string required Expense remarks Example: Coffee and toast
+     *
+     * @url: /api/v1/expense
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -90,9 +100,11 @@ class ExpenseController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show expense
      *
-     * url: /api/v1/expense/{id}
+     * @urlParam id required Expense id to show Example: 1
+     *
+     * @url: /api/v1/expense/{id}
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -103,9 +115,15 @@ class ExpenseController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update expense
      *
-     * url: /api/v1/expense/{id}
+     * @urlParam id required Expense id to update Example: 1
+     * @bodyParam category_id int required Expense category id Example: 1
+     * @bodyParam amount double required Expense amount Example: 100.00
+     * @bodyParam spent_on string required Expense reason Example: Breakfast
+     * @bodyParam remarks string required Expense remarks Example: Coffee and toast
+     *
+     * @url: /api/v1/expense/{id}
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
@@ -137,9 +155,11 @@ class ExpenseController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete expense
      *
-     * url: /api/v1/expense/{id}
+     * @urlParam id required Expense id to delete Example: 1
+     *
+     * @url: /api/v1/expense/{id}
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -151,9 +171,9 @@ class ExpenseController extends Controller
     }
 
     /**
-     * Generate summary of expenses
+     * Summary of expenses
      *
-     * url: /api/v1/expense/summary
+     * @url: /api/v1/expense/summary
      *
      * @return \Illuminate\Http\JsonResponse
      */
