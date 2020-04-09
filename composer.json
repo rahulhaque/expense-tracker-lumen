@@ -8,7 +8,7 @@
         "php": "^7.2.5",
         "flipbox/lumen-generator": "^6.0",
         "laravel/lumen-framework": "^7.0",
-        "mpociot/laravel-apidoc-generator": "^4.5",
+        "mpociot/laravel-apidoc-generator": "^4.6",
         "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {
