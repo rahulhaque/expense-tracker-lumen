@@ -1223,6 +1223,510 @@ Parameter | Status | Description
 
 <!-- END_5a6ba88e3aac8a1cd69028afa7001529 -->
 
+#Income
+
+
+<!-- START_48796c45c860f3a6b27d767b36ba480c -->
+## Get incomes
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://expense-manager-back.local/api/v1/income" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"
+```
+
+```javascript
+const url = new URL(
+    "http://expense-manager-back.local/api/v1/income"
+);
+
+let headers = {
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://expense-manager-back.local/api/v1/income',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+```python
+import requests
+import json
+
+url = 'http://expense-manager-back.local/api/v1/income'
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()
+```
+
+
+
+### HTTP Request
+`GET api/v1/income`
+
+
+<!-- END_48796c45c860f3a6b27d767b36ba480c -->
+
+<!-- START_e745a52cafdc8b3cd8351b9b263f7714 -->
+## Store income
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "http://expense-manager-back.local/api/v1/income" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"income_date":"2020-03-30 21:08:36","category_id":1,"amount":100,"source":"Salary","notes":"Through bank"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://expense-manager-back.local/api/v1/income"
+);
+
+let headers = {
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+};
+
+let body = {
+    "income_date": "2020-03-30 21:08:36",
+    "category_id": 1,
+    "amount": 100,
+    "source": "Salary",
+    "notes": "Through bank"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://expense-manager-back.local/api/v1/income',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer {token}',
+            'Content-Type' => 'application/json',
+        ],
+        'json' => [
+            'income_date' => '2020-03-30 21:08:36',
+            'category_id' => 1,
+            'amount' => 100.0,
+            'source' => 'Salary',
+            'notes' => 'Through bank',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+```python
+import requests
+import json
+
+url = 'http://expense-manager-back.local/api/v1/income'
+payload = {
+    "income_date": "2020-03-30 21:08:36",
+    "category_id": 1,
+    "amount": 100,
+    "source": "Salary",
+    "notes": "Through bank"
+}
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}',
+  'Content-Type': 'application/json'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()
+```
+
+
+
+### HTTP Request
+`POST api/v1/income`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `income_date` | datetime |  required  | Income date
+        `category_id` | integer |  required  | Income category id
+        `amount` | float |  required  | Income amount
+        `source` | string |  required  | Income from
+        `notes` | string |  required  | Income notes
+    
+<!-- END_e745a52cafdc8b3cd8351b9b263f7714 -->
+
+<!-- START_6a3e55e453c82aab1bc1d4a98234d371 -->
+## Summary of incomes
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://expense-manager-back.local/api/v1/income/summary" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"
+```
+
+```javascript
+const url = new URL(
+    "http://expense-manager-back.local/api/v1/income/summary"
+);
+
+let headers = {
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://expense-manager-back.local/api/v1/income/summary',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+```python
+import requests
+import json
+
+url = 'http://expense-manager-back.local/api/v1/income/summary'
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()
+```
+
+
+
+### HTTP Request
+`GET api/v1/income/summary`
+
+
+<!-- END_6a3e55e453c82aab1bc1d4a98234d371 -->
+
+<!-- START_be9c62ab763c7560ff48e200ea238ad3 -->
+## Show income
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://expense-manager-back.local/api/v1/income/1" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"
+```
+
+```javascript
+const url = new URL(
+    "http://expense-manager-back.local/api/v1/income/1"
+);
+
+let headers = {
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://expense-manager-back.local/api/v1/income/1',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+```python
+import requests
+import json
+
+url = 'http://expense-manager-back.local/api/v1/income/1'
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()
+```
+
+
+
+### HTTP Request
+`GET api/v1/income/{id}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | Income id to show
+
+<!-- END_be9c62ab763c7560ff48e200ea238ad3 -->
+
+<!-- START_b5d52bbc5b1845dcc26184745884975f -->
+## Update income
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://expense-manager-back.local/api/v1/income/1" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"income_date":"2020-03-30 21:08:36","category_id":1,"amount":100,"source":"Business","notes":"Cash"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://expense-manager-back.local/api/v1/income/1"
+);
+
+let headers = {
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+};
+
+let body = {
+    "income_date": "2020-03-30 21:08:36",
+    "category_id": 1,
+    "amount": 100,
+    "source": "Business",
+    "notes": "Cash"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->put(
+    'http://expense-manager-back.local/api/v1/income/1',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer {token}',
+            'Content-Type' => 'application/json',
+        ],
+        'json' => [
+            'income_date' => '2020-03-30 21:08:36',
+            'category_id' => 1,
+            'amount' => 100.0,
+            'source' => 'Business',
+            'notes' => 'Cash',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+```python
+import requests
+import json
+
+url = 'http://expense-manager-back.local/api/v1/income/1'
+payload = {
+    "income_date": "2020-03-30 21:08:36",
+    "category_id": 1,
+    "amount": 100,
+    "source": "Business",
+    "notes": "Cash"
+}
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}',
+  'Content-Type': 'application/json'
+}
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()
+```
+
+
+
+### HTTP Request
+`PUT api/v1/income/{id}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | Income id to update
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `income_date` | datetime |  required  | Income date
+        `category_id` | integer |  required  | Income category id
+        `amount` | float |  required  | Income amount
+        `source` | string |  required  | Income from
+        `notes` | string |  required  | Income notes
+    
+<!-- END_b5d52bbc5b1845dcc26184745884975f -->
+
+<!-- START_a488b757449676ff235df9e055c9d00c -->
+## Delete income
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://expense-manager-back.local/api/v1/income/1" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"
+```
+
+```javascript
+const url = new URL(
+    "http://expense-manager-back.local/api/v1/income/1"
+);
+
+let headers = {
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->delete(
+    'http://expense-manager-back.local/api/v1/income/1',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+```python
+import requests
+import json
+
+url = 'http://expense-manager-back.local/api/v1/income/1'
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('DELETE', url, headers=headers)
+response.json()
+```
+
+
+
+### HTTP Request
+`DELETE api/v1/income/{id}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | Income id to delete
+
+<!-- END_a488b757449676ff235df9e055c9d00c -->
+
 #Income Category
 
 
@@ -2134,390 +2638,6 @@ response.json()
 
 
 <!-- END_3157fb6d77831463001829403e201c3e -->
-
-<!-- START_48796c45c860f3a6b27d767b36ba480c -->
-## Display a listing of the resource.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/income" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://expense-manager-back.local/api/v1/income"
-);
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->get(
-    'http://expense-manager-back.local/api/v1/income',
-    [
-        'headers' => [
-            'Accept' => 'application/json',
-        ],
-    ]
-);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-```python
-import requests
-import json
-
-url = 'http://expense-manager-back.local/api/v1/income'
-headers = {
-  'Accept': 'application/json'
-}
-response = requests.request('GET', url, headers=headers)
-response.json()
-```
-
-
-
-### HTTP Request
-`GET api/v1/income`
-
-
-<!-- END_48796c45c860f3a6b27d767b36ba480c -->
-
-<!-- START_e745a52cafdc8b3cd8351b9b263f7714 -->
-## Store a newly created resource in storage.
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://expense-manager-back.local/api/v1/income" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://expense-manager-back.local/api/v1/income"
-);
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->post(
-    'http://expense-manager-back.local/api/v1/income',
-    [
-        'headers' => [
-            'Accept' => 'application/json',
-        ],
-    ]
-);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-```python
-import requests
-import json
-
-url = 'http://expense-manager-back.local/api/v1/income'
-headers = {
-  'Accept': 'application/json'
-}
-response = requests.request('POST', url, headers=headers)
-response.json()
-```
-
-
-
-### HTTP Request
-`POST api/v1/income`
-
-
-<!-- END_e745a52cafdc8b3cd8351b9b263f7714 -->
-
-<!-- START_6a3e55e453c82aab1bc1d4a98234d371 -->
-## Generate summary of incomes
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/income/summary" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://expense-manager-back.local/api/v1/income/summary"
-);
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->get(
-    'http://expense-manager-back.local/api/v1/income/summary',
-    [
-        'headers' => [
-            'Accept' => 'application/json',
-        ],
-    ]
-);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-```python
-import requests
-import json
-
-url = 'http://expense-manager-back.local/api/v1/income/summary'
-headers = {
-  'Accept': 'application/json'
-}
-response = requests.request('GET', url, headers=headers)
-response.json()
-```
-
-
-
-### HTTP Request
-`GET api/v1/income/summary`
-
-
-<!-- END_6a3e55e453c82aab1bc1d4a98234d371 -->
-
-<!-- START_be9c62ab763c7560ff48e200ea238ad3 -->
-## Display the specified resource.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/income/1" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://expense-manager-back.local/api/v1/income/1"
-);
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->get(
-    'http://expense-manager-back.local/api/v1/income/1',
-    [
-        'headers' => [
-            'Accept' => 'application/json',
-        ],
-    ]
-);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-```python
-import requests
-import json
-
-url = 'http://expense-manager-back.local/api/v1/income/1'
-headers = {
-  'Accept': 'application/json'
-}
-response = requests.request('GET', url, headers=headers)
-response.json()
-```
-
-
-
-### HTTP Request
-`GET api/v1/income/{id}`
-
-
-<!-- END_be9c62ab763c7560ff48e200ea238ad3 -->
-
-<!-- START_b5d52bbc5b1845dcc26184745884975f -->
-## Update the specified resource in storage.
-
-> Example request:
-
-```bash
-curl -X PUT \
-    "http://expense-manager-back.local/api/v1/income/1" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://expense-manager-back.local/api/v1/income/1"
-);
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-};
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->put(
-    'http://expense-manager-back.local/api/v1/income/1',
-    [
-        'headers' => [
-            'Accept' => 'application/json',
-        ],
-    ]
-);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-```python
-import requests
-import json
-
-url = 'http://expense-manager-back.local/api/v1/income/1'
-headers = {
-  'Accept': 'application/json'
-}
-response = requests.request('PUT', url, headers=headers)
-response.json()
-```
-
-
-
-### HTTP Request
-`PUT api/v1/income/{id}`
-
-
-<!-- END_b5d52bbc5b1845dcc26184745884975f -->
-
-<!-- START_a488b757449676ff235df9e055c9d00c -->
-## Remove the specified resource from storage.
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "http://expense-manager-back.local/api/v1/income/1" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://expense-manager-back.local/api/v1/income/1"
-);
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->delete(
-    'http://expense-manager-back.local/api/v1/income/1',
-    [
-        'headers' => [
-            'Accept' => 'application/json',
-        ],
-    ]
-);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-```python
-import requests
-import json
-
-url = 'http://expense-manager-back.local/api/v1/income/1'
-headers = {
-  'Accept': 'application/json'
-}
-response = requests.request('DELETE', url, headers=headers)
-response.json()
-```
-
-
-
-### HTTP Request
-`DELETE api/v1/income/{id}`
-
-
-<!-- END_a488b757449676ff235df9e055c9d00c -->
 
 <!-- START_5946f8e504ebe016c6d1726271090af2 -->
 ## Display a listing of the resource.

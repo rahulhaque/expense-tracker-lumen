@@ -7,10 +7,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @group Income
+ * @authenticated
+ */
 class IncomeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get incomes
      *
      * @return \Illuminate\Http\Response
      * @throws \Illuminate\Validation\ValidationException
@@ -54,7 +58,13 @@ class IncomeController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store income
+     *
+     * @bodyParam income_date datetime required Income date Example: 2020-03-30 21:08:36
+     * @bodyParam category_id int required Income category id Example: 1
+     * @bodyParam amount double required Income amount Example: 100.00
+     * @bodyParam source string required Income from Example: Salary
+     * @bodyParam notes string required Income notes Example: Through bank
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -85,7 +95,9 @@ class IncomeController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show income
+     *
+     * @urlParam id required Income id to show Example: 1
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -96,7 +108,14 @@ class IncomeController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update income
+     *
+     * @urlParam id required Income id to update Example: 1
+     * @bodyParam income_date datetime required Income date Example: 2020-03-30 21:08:36
+     * @bodyParam category_id int required Income category id Example: 1
+     * @bodyParam amount double required Income amount Example: 100.00
+     * @bodyParam source string required Income from Example: Business
+     * @bodyParam notes string required Income notes Example: Cash
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
@@ -128,7 +147,9 @@ class IncomeController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete income
+     *
+     * @urlParam id required Income id to delete Example: 1
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -140,7 +161,7 @@ class IncomeController extends Controller
     }
 
     /**
-     * Generate summary of incomes
+     * Summary of incomes
      *
      * @return \Illuminate\Http\JsonResponse
      */

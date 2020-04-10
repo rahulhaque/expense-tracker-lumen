@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Expense Tracker API",
-        "_postman_id": "d7ae8ae9-9e44-409f-9ea0-0fea16d94d21",
+        "_postman_id": "a308d2db-d47e-4b85-9fd7-aa3db67d00d3",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -490,6 +490,204 @@
             ]
         },
         {
+            "name": "Income",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get incomes",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Store income",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"income_date\": \"2020-03-30 21:08:36\",\n    \"category_id\": 1,\n    \"amount\": 100,\n    \"source\": \"Salary\",\n    \"notes\": \"Through bank\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Summary of incomes",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income\/summary",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Show income",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Income id to show"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update income",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Income id to update"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"income_date\": \"2020-03-30 21:08:36\",\n    \"category_id\": 1,\n    \"amount\": 100,\n    \"source\": \"Business\",\n    \"notes\": \"Cash\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete income",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Income id to delete"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
             "name": "Income Category",
             "description": "",
             "item": [
@@ -835,150 +1033,6 @@
                             "query": []
                         },
                         "method": "POST",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Display a listing of the resource.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "expense-manager-back.local",
-                            "path": "api\/v1\/income",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Store a newly created resource in storage.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "expense-manager-back.local",
-                            "path": "api\/v1\/income",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Generate summary of incomes",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "expense-manager-back.local",
-                            "path": "api\/v1\/income\/summary",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Display the specified resource.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "expense-manager-back.local",
-                            "path": "api\/v1\/income\/:id",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Update the specified resource in storage.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "expense-manager-back.local",
-                            "path": "api\/v1\/income\/:id",
-                            "query": []
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Remove the specified resource from storage.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "expense-manager-back.local",
-                            "path": "api\/v1\/income\/:id",
-                            "query": []
-                        },
-                        "method": "DELETE",
                         "header": [
                             {
                                 "key": "Accept",
