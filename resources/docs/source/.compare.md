@@ -320,6 +320,172 @@ response.json()
 
 <!-- END_8a4d15dcbadf16adf64dd6109f40540a -->
 
+#Currency
+
+
+<!-- START_5946f8e504ebe016c6d1726271090af2 -->
+## Get currencies
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://expense-manager-back.local/api/v1/currency" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"
+```
+
+```javascript
+const url = new URL(
+    "http://expense-manager-back.local/api/v1/currency"
+);
+
+let headers = {
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://expense-manager-back.local/api/v1/currency',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+```python
+import requests
+import json
+
+url = 'http://expense-manager-back.local/api/v1/currency'
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()
+```
+
+
+
+### HTTP Request
+`GET api/v1/currency`
+
+
+<!-- END_5946f8e504ebe016c6d1726271090af2 -->
+
+<!-- START_1d19b29dd5b536d3d0c1e2f825979a4a -->
+## Update currency
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://expense-manager-back.local/api/v1/currency/aut" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"currency_id":11}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://expense-manager-back.local/api/v1/currency/aut"
+);
+
+let headers = {
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+};
+
+let body = {
+    "currency_id": 11
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->put(
+    'http://expense-manager-back.local/api/v1/currency/aut',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer {token}',
+            'Content-Type' => 'application/json',
+        ],
+        'json' => [
+            'currency_id' => 11,
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+```python
+import requests
+import json
+
+url = 'http://expense-manager-back.local/api/v1/currency/aut'
+payload = {
+    "currency_id": 11
+}
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}',
+  'Content-Type': 'application/json'
+}
+response = requests.request('PUT', url, headers=headers, json=payload)
+response.json()
+```
+
+
+
+### HTTP Request
+`PUT api/v1/currency/{id}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `id` |  required  | User id of whom to update currency
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `currency_id` | integer |  required  | Currency id to update
+    
+<!-- END_1d19b29dd5b536d3d0c1e2f825979a4a -->
+
 #Expense
 
 
@@ -2638,134 +2804,6 @@ response.json()
 
 
 <!-- END_3157fb6d77831463001829403e201c3e -->
-
-<!-- START_5946f8e504ebe016c6d1726271090af2 -->
-## Display a listing of the resource.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/currency" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://expense-manager-back.local/api/v1/currency"
-);
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->get(
-    'http://expense-manager-back.local/api/v1/currency',
-    [
-        'headers' => [
-            'Accept' => 'application/json',
-        ],
-    ]
-);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-```python
-import requests
-import json
-
-url = 'http://expense-manager-back.local/api/v1/currency'
-headers = {
-  'Accept': 'application/json'
-}
-response = requests.request('GET', url, headers=headers)
-response.json()
-```
-
-
-
-### HTTP Request
-`GET api/v1/currency`
-
-
-<!-- END_5946f8e504ebe016c6d1726271090af2 -->
-
-<!-- START_1d19b29dd5b536d3d0c1e2f825979a4a -->
-## Update the specified resource in storage.
-
-> Example request:
-
-```bash
-curl -X PUT \
-    "http://expense-manager-back.local/api/v1/currency/1" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://expense-manager-back.local/api/v1/currency/1"
-);
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-};
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->put(
-    'http://expense-manager-back.local/api/v1/currency/1',
-    [
-        'headers' => [
-            'Accept' => 'application/json',
-        ],
-    ]
-);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-```python
-import requests
-import json
-
-url = 'http://expense-manager-back.local/api/v1/currency/1'
-headers = {
-  'Accept': 'application/json'
-}
-response = requests.request('PUT', url, headers=headers)
-response.json()
-```
-
-
-
-### HTTP Request
-`PUT api/v1/currency/{id}`
-
-
-<!-- END_1d19b29dd5b536d3d0c1e2f825979a4a -->
 
 <!-- START_ff0287fef8f2f89b741954e56fc156a5 -->
 ## Current and last month expense summary

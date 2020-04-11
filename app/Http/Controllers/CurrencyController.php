@@ -7,10 +7,14 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @group Currency
+ * @authenticated
+ */
 class CurrencyController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get currencies
      *
      * @return \Illuminate\Http\Response
      * @throws \Illuminate\Validation\ValidationException
@@ -65,7 +69,7 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store currency
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -76,7 +80,7 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show currency
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -87,7 +91,10 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update currency
+     *
+     * @urlParam id required User id of whom to update currency
+     * @bodyParam currency_id int required Currency id to update
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
@@ -113,7 +120,7 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete currency
      *
      * @param  int $id
      * @return \Illuminate\Http\Response

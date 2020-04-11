@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Expense Tracker API",
-        "_postman_id": "a308d2db-d47e-4b85-9fd7-aa3db67d00d3",
+        "_postman_id": "94e1981b-617c-4188-825a-c3ec26176619",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -114,6 +114,76 @@
                         "body": {
                             "mode": "raw",
                             "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Currency",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get currencies",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/currency",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update currency",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/currency\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "aut",
+                                    "description": "User id of whom to update currency"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"currency_id\": 11\n}"
                         },
                         "description": "",
                         "response": []
@@ -1033,54 +1103,6 @@
                             "query": []
                         },
                         "method": "POST",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Display a listing of the resource.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "expense-manager-back.local",
-                            "path": "api\/v1\/currency",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Update the specified resource in storage.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "expense-manager-back.local",
-                            "path": "api\/v1\/currency\/:id",
-                            "query": []
-                        },
-                        "method": "PUT",
                         "header": [
                             {
                                 "key": "Accept",
