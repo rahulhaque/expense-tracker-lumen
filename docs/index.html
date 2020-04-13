@@ -194,6 +194,106 @@ response.json()</code></pre>
 <h3>HTTP Request</h3>
 <p><code>PATCH api/v1/auth/refresh</code></p>
 <!-- END_37f80330bffb056e64f5a48f9bc90452 -->
+<!-- START_3157fb6d77831463001829403e201c3e -->
+<h2>Register user</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://expense-manager-back.local/api/v1/auth/register" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"et","email":"perspiciatis","password":"animi"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://expense-manager-back.local/api/v1/auth/register"
+);
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+};
+
+let body = {
+    "name": "et",
+    "email": "perspiciatis",
+    "password": "animi"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://expense-manager-back.local/api/v1/auth/register',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'et',
+            'email' =&gt; 'perspiciatis',
+            'password' =&gt; 'animi',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://expense-manager-back.local/api/v1/auth/register'
+payload = {
+    "name": "et",
+    "email": "perspiciatis",
+    "password": "animi"
+}
+headers = {
+  'Accept': 'application/json',
+  'Content-Type': 'application/json'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/v1/auth/register</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>required</td>
+<td>User name</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>User email</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>required</td>
+<td>User password</td>
+</tr>
+</tbody>
+</table>
+<!-- END_3157fb6d77831463001829403e201c3e -->
 <!-- START_a68ff660ea3d08198e527df659b17963 -->
 <h2>Logout user</h2>
 <p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
@@ -358,14 +458,14 @@ response.json()</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://expense-manager-back.local/api/v1/currency/aut" \
+    "http://expense-manager-back.local/api/v1/currency/fugit" \
     -H "Accept: application/json" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"currency_id":11}'
+    -d '{"currency_id":20}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://expense-manager-back.local/api/v1/currency/aut"
+    "http://expense-manager-back.local/api/v1/currency/fugit"
 );
 
 let headers = {
@@ -375,7 +475,7 @@ let headers = {
 };
 
 let body = {
-    "currency_id": 11
+    "currency_id": 20
 }
 
 fetch(url, {
@@ -388,7 +488,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://expense-manager-back.local/api/v1/currency/aut',
+    'http://expense-manager-back.local/api/v1/currency/fugit',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -396,7 +496,7 @@ $response = $client-&gt;put(
             'Content-Type' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'currency_id' =&gt; 11,
+            'currency_id' =&gt; 20,
         ],
     ]
 );
@@ -405,9 +505,9 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://expense-manager-back.local/api/v1/currency/aut'
+url = 'http://expense-manager-back.local/api/v1/currency/fugit'
 payload = {
-    "currency_id": 11
+    "currency_id": 20
 }
 headers = {
   'Accept': 'application/json',
@@ -2677,53 +2777,6 @@ response.json()</code></pre>
 </table>
 <!-- END_ad3b44e69f2f97d33193276f45379b9f -->
 <h1>general</h1>
-<!-- START_3157fb6d77831463001829403e201c3e -->
-<h2>Store a newly created resource in storage.</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "http://expense-manager-back.local/api/v1/auth/register" \
-    -H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "http://expense-manager-back.local/api/v1/auth/register"
-);
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-    'http://expense-manager-back.local/api/v1/auth/register',
-    [
-        'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
-<pre><code class="language-python">import requests
-import json
-
-url = 'http://expense-manager-back.local/api/v1/auth/register'
-headers = {
-  'Accept': 'application/json'
-}
-response = requests.request('POST', url, headers=headers)
-response.json()</code></pre>
-<h3>HTTP Request</h3>
-<p><code>POST api/v1/auth/register</code></p>
-<!-- END_3157fb6d77831463001829403e201c3e -->
 <!-- START_ff0287fef8f2f89b741954e56fc156a5 -->
 <h2>Current and last month expense summary</h2>
 <p>url: /api/v1/report/expense/months/summary</p>

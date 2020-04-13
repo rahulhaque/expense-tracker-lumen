@@ -182,6 +182,98 @@ response.json()
 
 <!-- END_37f80330bffb056e64f5a48f9bc90452 -->
 
+<!-- START_3157fb6d77831463001829403e201c3e -->
+## Register user
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://expense-manager-back.local/api/v1/auth/register" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"et","email":"perspiciatis","password":"animi"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://expense-manager-back.local/api/v1/auth/register"
+);
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+};
+
+let body = {
+    "name": "et",
+    "email": "perspiciatis",
+    "password": "animi"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://expense-manager-back.local/api/v1/auth/register',
+    [
+        'headers' => [
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
+        ],
+        'json' => [
+            'name' => 'et',
+            'email' => 'perspiciatis',
+            'password' => 'animi',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+```python
+import requests
+import json
+
+url = 'http://expense-manager-back.local/api/v1/auth/register'
+payload = {
+    "name": "et",
+    "email": "perspiciatis",
+    "password": "animi"
+}
+headers = {
+  'Accept': 'application/json',
+  'Content-Type': 'application/json'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()
+```
+
+
+
+### HTTP Request
+`POST api/v1/auth/register`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `name` | string |  required  | User name
+        `email` | string |  required  | User email
+        `password` | string |  required  | User password
+    
+<!-- END_3157fb6d77831463001829403e201c3e -->
+
 <!-- START_a68ff660ea3d08198e527df659b17963 -->
 ## Logout user
 
@@ -400,17 +492,17 @@ response.json()
 
 ```bash
 curl -X PUT \
-    "http://expense-manager-back.local/api/v1/currency/aut" \
+    "http://expense-manager-back.local/api/v1/currency/fugit" \
     -H "Accept: application/json" \
     -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
-    -d '{"currency_id":11}'
+    -d '{"currency_id":20}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://expense-manager-back.local/api/v1/currency/aut"
+    "http://expense-manager-back.local/api/v1/currency/fugit"
 );
 
 let headers = {
@@ -420,7 +512,7 @@ let headers = {
 };
 
 let body = {
-    "currency_id": 11
+    "currency_id": 20
 }
 
 fetch(url, {
@@ -436,7 +528,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->put(
-    'http://expense-manager-back.local/api/v1/currency/aut',
+    'http://expense-manager-back.local/api/v1/currency/fugit',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -444,7 +536,7 @@ $response = $client->put(
             'Content-Type' => 'application/json',
         ],
         'json' => [
-            'currency_id' => 11,
+            'currency_id' => 20,
         ],
     ]
 );
@@ -456,9 +548,9 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://expense-manager-back.local/api/v1/currency/aut'
+url = 'http://expense-manager-back.local/api/v1/currency/fugit'
 payload = {
-    "currency_id": 11
+    "currency_id": 20
 }
 headers = {
   'Accept': 'application/json',
@@ -2740,70 +2832,6 @@ Parameter | Type | Status | Description
 
 #general
 
-
-<!-- START_3157fb6d77831463001829403e201c3e -->
-## Store a newly created resource in storage.
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://expense-manager-back.local/api/v1/auth/register" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://expense-manager-back.local/api/v1/auth/register"
-);
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->post(
-    'http://expense-manager-back.local/api/v1/auth/register',
-    [
-        'headers' => [
-            'Accept' => 'application/json',
-        ],
-    ]
-);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-```python
-import requests
-import json
-
-url = 'http://expense-manager-back.local/api/v1/auth/register'
-headers = {
-  'Accept': 'application/json'
-}
-response = requests.request('POST', url, headers=headers)
-response.json()
-```
-
-
-
-### HTTP Request
-`POST api/v1/auth/register`
-
-
-<!-- END_3157fb6d77831463001829403e201c3e -->
 
 <!-- START_ff0287fef8f2f89b741954e56fc156a5 -->
 ## Current and last month expense summary

@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Expense Tracker API",
-        "_postman_id": "94e1981b-617c-4188-825a-c3ec26176619",
+        "_postman_id": "0ec89574-26bc-41e2-8ee4-56e250c1d175",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -58,6 +58,30 @@
                         "body": {
                             "mode": "raw",
                             "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Register user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/auth\/register",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"et\",\n    \"email\": \"perspiciatis\",\n    \"password\": \"animi\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -165,7 +189,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "aut",
+                                    "value": "fugit",
                                     "description": "User id of whom to update currency"
                                 }
                             ]
@@ -183,7 +207,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"currency_id\": 11\n}"
+                            "raw": "{\n    \"currency_id\": 20\n}"
                         },
                         "description": "",
                         "response": []
@@ -1093,30 +1117,6 @@
             "name": "general",
             "description": "",
             "item": [
-                {
-                    "name": "Store a newly created resource in storage.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "expense-manager-back.local",
-                            "path": "api\/v1\/auth\/register",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
                 {
                     "name": "Current and last month expense summary",
                     "request": {

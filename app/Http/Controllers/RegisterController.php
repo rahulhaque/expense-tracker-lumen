@@ -7,11 +7,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * @group Auth
+ */
 class RegisterController extends Controller
 {
 
     /**
-     * Store a newly created resource in storage.
+     * Register user
+     *
+     * @bodyParam name string required User name
+     * @bodyParam email string required User email
+     * @bodyParam password string required User password
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
