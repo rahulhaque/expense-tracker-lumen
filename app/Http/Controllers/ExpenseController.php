@@ -166,8 +166,10 @@ class ExpenseController extends Controller
      */
     public function destroy($id)
     {
-        IncomeExpense::find($id)->delete();
-        return response()->json(['data' => 'expense_deleted'], 200);
+        if (IncomeExpense::where('id', $id)->where('created_by', Auth::id())->delete()) {
+            return response()->json(['data' => 'expense_deleted'], 200);
+        }
+        return response()->json(['error' => 'unauthorised'], 403);
     }
 
     /**

@@ -138,9 +138,10 @@ class IncomeCategoryController extends Controller
             $incomeCategoryById->category_name == 'Loan' ||
             $incomeCategoryById->category_name == 'Lent Return') {
             return response()->json(['data' => 'income_category_in_use'], 409);
-        } else {
-            IncomeCategory::find($id)->delete();
+        } elseif (IncomeCategory::where('id', $id)->where('created_by', Auth::id())->delete()) {
             return response()->json(['data' => 'income_category_deleted'], 200);
+        } else {
+            return response()->json(['error' => 'unauthorised'], 403);
         }
     }
 }

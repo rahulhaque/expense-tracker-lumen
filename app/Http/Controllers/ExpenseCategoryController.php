@@ -137,9 +137,10 @@ class ExpenseCategoryController extends Controller
             $expenseCategoryById->category_name == 'Loan Return' ||
             $expenseCategoryById->category_name == 'Lent') {
             return response()->json(['data' => 'expense_category_in_use'], 409);
-        } else {
-            ExpenseCategory::find($id)->delete();
+        } elseif (ExpenseCategory::where('id', $id)->where('created_by', Auth::id())->delete()) {
             return response()->json(['data' => 'expense_category_deleted'], 200);
+        } else {
+            return response()->json(['error' => 'unauthorised'], 403);
         }
     }
 }
