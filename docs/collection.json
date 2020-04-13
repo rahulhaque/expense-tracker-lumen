@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Expense Tracker API",
-        "_postman_id": "0ec89574-26bc-41e2-8ee4-56e250c1d175",
+        "_postman_id": "8f2df7ee-17d7-4643-a222-1202be54c803",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -81,7 +81,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"et\",\n    \"email\": \"perspiciatis\",\n    \"password\": \"animi\"\n}"
+                            "raw": "{\n    \"name\": \"est\",\n    \"email\": \"laudantium\",\n    \"password\": \"ipsam\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -189,7 +189,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "fugit",
+                                    "value": "necessitatibus",
                                     "description": "User id of whom to update currency"
                                 }
                             ]
@@ -207,7 +207,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"currency_id\": 20\n}"
+                            "raw": "{\n    \"currency_id\": 1\n}"
                         },
                         "description": "",
                         "response": []
@@ -952,6 +952,96 @@
             ]
         },
         {
+            "name": "Summary",
+            "description": "",
+            "item": [
+                {
+                    "name": "Current & last month expenses",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/report\/expense\/months\/summary",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Current & last month incomes",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/report\/income\/months\/summary",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get all transactions",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/report\/transaction",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
             "name": "User",
             "description": "",
             "item": [
@@ -1108,84 +1198,6 @@
                             "raw": "{\n    \"name\": \"Ciri\",\n    \"email\": \"cir@email.com\",\n    \"currency_id\": 1\n}"
                         },
                         "description": "",
-                        "response": []
-                    }
-                }
-            ]
-        },
-        {
-            "name": "general",
-            "description": "",
-            "item": [
-                {
-                    "name": "Current and last month expense summary",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "expense-manager-back.local",
-                            "path": "api\/v1\/report\/expense\/months\/summary",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "url: \/api\/v1\/report\/expense\/months\/summary",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Current and last month income summary",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "expense-manager-back.local",
-                            "path": "api\/v1\/report\/income\/months\/summary",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "url: \/api\/v1\/report\/income\/months\/summary",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Current and last month income summary",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "expense-manager-back.local",
-                            "path": "api\/v1\/report\/transaction",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "url: \/api\/v1\/report\/transaction",
                         "response": []
                     }
                 }
