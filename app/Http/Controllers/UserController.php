@@ -17,6 +17,8 @@ class UserController extends Controller
     /**
      * Get users
      *
+     * @url: /api/v1/user
+     *
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -28,6 +30,8 @@ class UserController extends Controller
      * Show a user
      *
      * @urlParam id required User id to show Example: 1
+     *
+     * @url: /api/v1/user/{id}
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -48,6 +52,8 @@ class UserController extends Controller
      * @bodyParam name string required User name Example: Ciri
      * @bodyParam email string required User email Example: cir@email.com
      * @bodyParam currency_id int required User currency id Example: 1
+     *
+     * @url: /api/v1/user/{id}
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
@@ -83,6 +89,8 @@ class UserController extends Controller
      * @bodyParam email string required User email Example: tiss@email.com
      * @bodyParam currency_id int required User currency id Example: 13
      *
+     * @url: /api/v1/user/update
+     *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
@@ -115,6 +123,8 @@ class UserController extends Controller
      * @bodyParam old_password string required Old password Example: 123456
      * @bodyParam new_password string required New password Example: 234567
      * @bodyParam confirm_password string required Confirm password Example: 234567
+     *
+     * @url: /api/v1/user/password
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse

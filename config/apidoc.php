@@ -136,8 +136,8 @@ return [
                  * Specify headers to be added to the example requests
                  */
                 'headers' => [
-                    // 'Content-Type' => 'application/json',
-                    'Accept' => 'application/json',
+                     'Content-Type' => 'application/json',
+                    // 'Accept' => 'application/json',
                     // 'Authorization' => 'Bearer {token}',
                     // 'Api-Version' => 'v2',
                 ],
