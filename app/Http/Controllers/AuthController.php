@@ -92,7 +92,7 @@ class AuthController extends Controller
             'access_token' => $token,
             'token_type' => 'bearer',
             'token_created' => time(),
-            'expires_in' => Auth::factory()->getTTL() * 60
+            'expires_in' => Auth::factory()->getTTL() * 60 // Converting response to seconds
         ], 200);
     }
 

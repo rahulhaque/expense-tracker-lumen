@@ -2,44 +2,6 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-try {
-    (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
-        dirname(__DIR__)
-    ))->bootstrap();
-} catch (Dotenv\Exception\InvalidPathException $e) {
-    //
-}
-
-/*
-|--------------------------------------------------------------------------
-| Create The Application
-|--------------------------------------------------------------------------
-|
-| Here we will load the environment and create the application instance
-| that serves as the central piece of this framework. We'll use this
-| application as an "IoC" container and router for this framework.
-|
-*/
-
-$app = new Laravel\Lumen\Application(
-    realpath(__DIR__ . '/../')
-);
-
-$app->withFacades();
-
-$app->withEloquent();
-
-
-
-
-
-
-
-
-
-
-require_once __DIR__ . '/../vendor/autoload.php';
-
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
     dirname(__DIR__)
 ))->bootstrap();
@@ -100,6 +62,7 @@ $app->singleton(
 $app->configure('app');
 $app->configure('apidoc');
 $app->configure('auth');
+$app->configure('jwt');
 $app->configure('database');
 
 /*
@@ -136,8 +99,9 @@ $app->routeMiddleware([
 // $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
-$app->register(\Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 
+// Tymon JWT service provider
+$app->register(\Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 // Lumen generators 5.6.5
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 // API doc generator
