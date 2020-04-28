@@ -88,7 +88,7 @@ class AuthController extends Controller
     protected function respondWithToken($token)
     {
         return response()->json([
-            'user' => Auth::user(),
+            'user' => Auth::user()->load('currency'),
             'access_token' => $token,
             'token_type' => 'bearer',
             'token_created' => time(),
