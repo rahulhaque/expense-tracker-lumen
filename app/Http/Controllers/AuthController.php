@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 /**
  * @group Auth
@@ -88,7 +89,7 @@ class AuthController extends Controller
     protected function respondWithToken($token)
     {
         return response()->json([
-            'user' => Auth::user(),
+            'user' => JWTAuth::setToken($token)->toUser()->load('currency'),
             'access_token' => $token,
             'token_type' => 'bearer',
             'token_created' => time(),
