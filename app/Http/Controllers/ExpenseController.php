@@ -111,7 +111,7 @@ class ExpenseController extends Controller
      */
     public function show($id)
     {
-        return response()->json(IncomeExpense::find($id));
+        return response()->json(IncomeExpense::with('currency', 'category')->find($id));
     }
 
     /**

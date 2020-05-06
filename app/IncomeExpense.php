@@ -6,6 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class IncomeExpense extends Model
 {
+    public function category()
+    {
+        return $this->belongsTo(ExpenseCategory::class,'category_id');
+    }
+
+    public function currency()
+    {
+        return $this->belongsTo(Currency::class,'currency_id');
+    }
+
     public function creator()
     {
         return $this->belongsTo(User::class, 'created_by');
