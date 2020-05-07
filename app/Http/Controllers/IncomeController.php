@@ -29,7 +29,7 @@ class IncomeController extends Controller
             'search_by' => 'string|max:100',
         ]);
 
-        $query = IncomeExpense::join('income_categories', 'income_categories.id', 'income_expenses.category_id')
+        $query = IncomeExpense::join('transaction_categories', 'transaction_categories.id', 'income_expenses.category_id')
             ->join('currencies', 'currencies.id', 'income_expenses.currency_id')
             ->join('users', 'users.id', 'income_expenses.created_by')
             ->where('income_expenses.transaction_type', 'Income')
@@ -49,7 +49,7 @@ class IncomeController extends Controller
         return response()->json(
             $query->select(
                 'income_expenses.*',
-                'income_categories.category_name',
+                'transaction_categories.category_name',
                 'currencies.currency_code',
                 'currencies.currency_name',
                 'currencies.country'
@@ -104,7 +104,7 @@ class IncomeController extends Controller
      */
     public function show($id)
     {
-        return response()->json(IncomeExpense::find($id));
+        return response()->json(IncomeExpense::with('currency', 'category')->find($id));
     }
 
     /**

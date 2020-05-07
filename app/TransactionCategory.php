@@ -1,16 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Rahul
- * Date: 9/20/2018
- * Time: 1:42 AM
- */
 
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ExpenseCategory extends Model
+class TransactionCategory extends Model
 {
     public function creator()
     {
@@ -22,8 +16,13 @@ class ExpenseCategory extends Model
         return $this->belongsTo(User::class, 'updated_by');
     }
 
+    public function income()
+    {
+        return $this->hasMany(IncomeExpense::class, 'category_id')->where('transaction_type', 'Income');
+    }
+
     public function expense()
     {
-        return $this->hasMany(IncomeExpense::class, 'category_id');
+        return $this->hasMany(IncomeExpense::class, 'category_id')->where('transaction_type', 'Expense');
     }
 }

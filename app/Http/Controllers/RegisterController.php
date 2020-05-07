@@ -39,15 +39,12 @@ class RegisterController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        DB::table('expense_categories')->insert([
-            ['category_name' => 'Lent', 'created_by' => $user->id],
-            ['category_name' => 'Loan Return', 'created_by' => $user->id]
-        ]);
-
-        DB::table('income_categories')->insert([
-            ['category_name' => 'Salary', 'created_by' => $user->id],
-            ['category_name' => 'Loan', 'created_by' => $user->id],
-            ['category_name' => 'Lent Return', 'created_by' => $user->id]
+        DB::table('transaction_categories')->insert([
+            ['category_name' => 'Lent', 'category_type' => 'Expense', 'created_by' => $user->id],
+            ['category_name' => 'Loan Return', 'category_type' => 'Expense', 'created_by' => $user->id],
+            ['category_name' => 'Salary', 'category_type' => 'Income', 'created_by' => $user->id],
+            ['category_name' => 'Loan', 'category_type' => 'Income', 'created_by' => $user->id],
+            ['category_name' => 'Lent Return', 'category_type' => 'Income', 'created_by' => $user->id]
         ]);
 
         return response(['data' => 'registration_successful'], 201);

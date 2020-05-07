@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ExpenseCategory;
+use App\TransactionCategory;
 use App\IncomeExpense;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +30,9 @@ class ExpenseCategoryController extends Controller
             'search_by' => 'string|max:100',
         ]);
 
-        $query = ExpenseCategory::where('created_by', Auth::id())->orderBy(
+        $query = TransactionCategory::where('created_by', Auth::id())
+            ->where('category_type', 'Expense')
+            ->orderBy(
             $request->get('sort_col') ? $request->get('sort_col') : 'id',
             $request->get('sort_order') ? $request->get('sort_order') : 'asc'
         );
@@ -63,12 +65,13 @@ class ExpenseCategoryController extends Controller
                 'required',
                 'string',
                 'max:100',
-                Rule::unique('expense_categories', 'category_name')->where('created_by', Auth::id()),
+                Rule::unique('transaction_categories', 'category_name')->where('created_by', Auth::id()),
             ]
         ]);
 
-        $expenseCategory = new ExpenseCategory();
+        $expenseCategory = new TransactionCategory();
         $expenseCategory->category_name = $request->category_name;
+        $expenseCategory->category_type = 'Expense';
         $expenseCategory->created_by = Auth::id();
         $expenseCategory->save();
 
@@ -85,7 +88,7 @@ class ExpenseCategoryController extends Controller
      */
     public function show($id)
     {
-        return response()->json(ExpenseCategory::find($id));
+        return response()->json(TransactionCategory::find($id));
     }
 
     /**
@@ -106,13 +109,13 @@ class ExpenseCategoryController extends Controller
                 'required',
                 'string',
                 'max:100',
-                Rule::unique('expense_categories', 'category_name')
+                Rule::unique('transaction_categories', 'category_name')
                     ->where('created_by', Auth::id())
                     ->ignore($id),
             ]
         ]);
 
-        $expenseCategoryById = ExpenseCategory::find($id);
+        $expenseCategoryById = TransactionCategory::find($id);
         $expenseCategoryById->category_name = $request->category_name;
         $expenseCategoryById->updated_by = Auth::id();
         $expenseCategoryById->save();
@@ -131,13 +134,13 @@ class ExpenseCategoryController extends Controller
     public function destroy($id)
     {
         $expenseByCategoryId = IncomeExpense::where('transaction_type', 'Expense')->where('category_id', $id)->first();
-        $expenseCategoryById = ExpenseCategory::find($id);
+        $expenseCategoryById = TransactionCategory::find($id);
 
         if ($expenseByCategoryId ||
             $expenseCategoryById->category_name == 'Loan Return' ||
             $expenseCategoryById->category_name == 'Lent') {
             return response()->json(['data' => 'expense_category_in_use'], 409);
-        } elseif (ExpenseCategory::where('id', $id)->where('created_by', Auth::id())->delete()) {
+        } elseif (TransactionCategory::where('id', $id)->where('created_by', Auth::id())->delete()) {
             return response()->json(['data' => 'expense_category_deleted'], 200);
         } else {
             return response()->json(['error' => 'unauthorised'], 403);

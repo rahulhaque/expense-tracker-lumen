@@ -8,7 +8,7 @@ class IncomeExpense extends Model
 {
     public function category()
     {
-        return $this->belongsTo(ExpenseCategory::class,'category_id');
+        return $this->belongsTo(TransactionCategory::class,'category_id');
     }
 
     public function currency()

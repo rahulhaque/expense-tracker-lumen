@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\IncomeCategory;
+use App\TransactionCategory;
 use App\IncomeExpense;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +30,9 @@ class IncomeCategoryController extends Controller
             'search_by' => 'string|max:100',
         ]);
 
-        $query = IncomeCategory::where('created_by', Auth::id())->orderBy(
+        $query = TransactionCategory::where('created_by', Auth::id())
+            ->where('category_type', 'Income')
+            ->orderBy(
             $request->get('sort_col') ? $request->get('sort_col') : 'id',
             $request->get('sort_order') ? $request->get('sort_order') : 'asc'
         );
@@ -63,12 +65,13 @@ class IncomeCategoryController extends Controller
                 'required',
                 'string',
                 'max:100',
-                Rule::unique('income_categories', 'category_name')->where('created_by', Auth::id()),
+                Rule::unique('transaction_categories', 'category_name')->where('created_by', Auth::id()),
             ]
         ]);
 
-        $incomeCategory = new IncomeCategory();
+        $incomeCategory = new TransactionCategory();
         $incomeCategory->category_name = $request->category_name;
+        $incomeCategory->category_type = 'Income';
         $incomeCategory->created_by = Auth::id();
         $incomeCategory->save();
 
@@ -85,7 +88,7 @@ class IncomeCategoryController extends Controller
      */
     public function show($id)
     {
-        return response()->json(IncomeCategory::find($id));
+        return response()->json(TransactionCategory::find($id));
     }
 
     /**
@@ -106,13 +109,13 @@ class IncomeCategoryController extends Controller
                 'required',
                 'string',
                 'max:100',
-                Rule::unique('income_categories', 'category_name')
+                Rule::unique('transaction_categories', 'category_name')
                     ->where('created_by', Auth::id())
                     ->ignore($id),
             ]
         ]);
 
-        $incomeCategoryById = IncomeCategory::find($id);
+        $incomeCategoryById = TransactionCategory::find($id);
         $incomeCategoryById->category_name = $request->category_name;
         $incomeCategoryById->updated_by = Auth::id();
         $incomeCategoryById->save();
@@ -131,14 +134,14 @@ class IncomeCategoryController extends Controller
     public function destroy($id)
     {
         $incomeByCategoryId = IncomeExpense::where('transaction_type', 'Income')->where('category_id', $id)->first();
-        $incomeCategoryById = IncomeCategory::find($id);
+        $incomeCategoryById = TransactionCategory::find($id);
 
         if ($incomeByCategoryId ||
             $incomeCategoryById->category_name == 'Salary' ||
             $incomeCategoryById->category_name == 'Loan' ||
             $incomeCategoryById->category_name == 'Lent Return') {
             return response()->json(['data' => 'income_category_in_use'], 409);
-        } elseif (IncomeCategory::where('id', $id)->where('created_by', Auth::id())->delete()) {
+        } elseif (TransactionCategory::where('id', $id)->where('created_by', Auth::id())->delete()) {
             return response()->json(['data' => 'income_category_deleted'], 200);
         } else {
             return response()->json(['error' => 'unauthorised'], 403);

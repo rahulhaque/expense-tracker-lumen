@@ -32,7 +32,7 @@ class ExpenseController extends Controller
             'search_by' => 'string|max:100',
         ]);
 
-        $query = IncomeExpense::join('expense_categories', 'expense_categories.id', 'income_expenses.category_id')
+        $query = IncomeExpense::join('transaction_categories', 'transaction_categories.id', 'income_expenses.category_id')
             ->join('currencies', 'currencies.id', 'income_expenses.currency_id')
             ->join('users', 'users.id', 'income_expenses.created_by')
             ->where('income_expenses.transaction_type', 'Expense')
@@ -52,7 +52,7 @@ class ExpenseController extends Controller
         return response()->json(
             $query->select(
                 'income_expenses.*',
-                'expense_categories.category_name',
+                'transaction_categories.category_name',
                 'currencies.currency_code',
                 'currencies.currency_name',
                 'currencies.country'
