@@ -12,8 +12,7 @@ Basic features include -
 - Registration
 - Income/Expense Category
 - Income/Expense Tracking
-- Currency Select
-- Tools Sidebar (Calculator)
+- Currency Support
 
 ## Install Instruction
 
@@ -24,6 +23,7 @@ Basic features include -
 - Run `php artisan key:generate` to generate secure application key
 - Run `php artisan jwt:secret` to generate JWT encryption key
 - Start the server with `php artisan serve`
+- The server should be running at `http://localhost:8000`
 
 ## Documentation
 
@@ -31,10 +31,13 @@ Basic features include -
 
 The static API documentation can be found found at `/public/docs` folder.
 
+## Frontend
+
+- [Expense Tracker Web 💰 React](https://github.com/rahulhaque/expense-tracker-react)
+
 ## To-do
 
-- API Documentation
-- Build Frontend - React or React Native (Maybe both)
+- Build Frontend - Vue or React Native (Maybe both)
 
 ## More Info
 
