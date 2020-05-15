@@ -16,6 +16,12 @@ class IncomeController extends Controller
     /**
      * Get incomes
      *
+     * @queryParam per_page Rows per page (default: 10) Example: 10
+     * @queryParam sort_col Column name to sort (default: id) Example: created_at
+     * @queryParam sort_order Column sort order (asc\|desc) Example: desc
+     * @queryParam search_col Column name to search Example: category_name
+     * @queryParam search_by Text to search for Example: Salary
+     *
      * @return \Illuminate\Http\Response
      * @throws \Illuminate\Validation\ValidationException
      */

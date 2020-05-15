@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Expense Tracker API",
-        "_postman_id": "8f2df7ee-17d7-4643-a222-1202be54c803",
+        "_postman_id": "81751bae-29db-46d0-b572-cabc77a8865c",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -22,6 +22,10 @@
                         },
                         "method": "POST",
                         "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
@@ -47,12 +51,16 @@
                         "method": "PATCH",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -75,13 +83,17 @@
                         "method": "POST",
                         "header": [
                             {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
                                 "key": "Accept",
                                 "value": "application\/json"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"est\",\n    \"email\": \"laudantium\",\n    \"password\": \"ipsam\"\n}"
+                            "raw": "{\n    \"name\": \"accusantium\",\n    \"email\": \"omnis\",\n    \"password\": \"et\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -99,12 +111,16 @@
                         "method": "POST",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -127,12 +143,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -161,12 +181,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -189,7 +213,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "necessitatibus",
+                                    "value": "odit",
                                     "description": "User id of whom to update currency"
                                 }
                             ]
@@ -197,17 +221,21 @@
                         "method": "PUT",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"currency_id\": 1\n}"
+                            "raw": "{\n    \"currency_id\": 13\n}"
                         },
                         "description": "",
                         "response": []
@@ -231,12 +259,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -259,12 +291,16 @@
                         "method": "POST",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -287,12 +323,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -323,12 +363,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -359,12 +403,16 @@
                         "method": "PUT",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -395,12 +443,16 @@
                         "method": "DELETE",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -429,12 +481,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -457,12 +513,16 @@
                         "method": "POST",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -493,12 +553,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -529,12 +593,16 @@
                         "method": "PUT",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -565,12 +633,16 @@
                         "method": "DELETE",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -594,17 +666,52 @@
                             "protocol": "http",
                             "host": "expense-manager-back.local",
                             "path": "api\/v1\/income",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "per_page",
+                                    "value": "10",
+                                    "description": "Rows per page (default: 10)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort_col",
+                                    "value": "created_at",
+                                    "description": "Column name to sort (default: id)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "desc",
+                                    "description": "Column sort order (asc\\|desc)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search_col",
+                                    "value": "category_name",
+                                    "description": "Column name to search",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search_by",
+                                    "value": "Salary",
+                                    "description": "Text to search for",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -627,12 +734,16 @@
                         "method": "POST",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -655,12 +766,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -691,12 +806,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -727,12 +846,16 @@
                         "method": "PUT",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -763,12 +886,16 @@
                         "method": "DELETE",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -797,12 +924,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -825,12 +956,16 @@
                         "method": "POST",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -861,12 +996,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -897,12 +1036,16 @@
                         "method": "PUT",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -933,12 +1076,16 @@
                         "method": "DELETE",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -967,12 +1114,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -995,12 +1146,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -1023,12 +1178,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -1057,12 +1216,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -1085,12 +1248,16 @@
                         "method": "PUT",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -1113,12 +1280,16 @@
                         "method": "PUT",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -1149,12 +1320,16 @@
                         "method": "GET",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {
@@ -1185,12 +1360,16 @@
                         "method": "PUT",
                         "header": [
                             {
-                                "key": "Accept",
+                                "key": "Content-Type",
                                 "value": "application\/json"
                             },
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
                             }
                         ],
                         "body": {

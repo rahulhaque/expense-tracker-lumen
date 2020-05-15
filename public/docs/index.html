@@ -58,7 +58,6 @@
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
     "http://expense-manager-back.local/api/v1/auth/login" \
-    -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{"email":"example@email.com","password":"123456"}'
 </code></pre>
@@ -67,8 +66,8 @@
 );
 
 let headers = {
-    "Accept": "application/json",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 };
 
 let body = {
@@ -89,7 +88,6 @@ $response = $client-&gt;post(
     'http://expense-manager-back.local/api/v1/auth/login',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
             'Content-Type' =&gt; 'application/json',
         ],
         'json' =&gt; [
@@ -109,7 +107,6 @@ payload = {
     "password": "123456"
 }
 headers = {
-  'Accept': 'application/json',
   'Content-Type': 'application/json'
 }
 response = requests.request('POST', url, headers=headers, json=payload)
@@ -150,16 +147,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X PATCH \
     "http://expense-manager-back.local/api/v1/auth/refresh" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/auth/refresh"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -174,7 +171,7 @@ $response = $client-&gt;patch(
     'http://expense-manager-back.local/api/v1/auth/refresh',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -186,7 +183,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/auth/refresh'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('PATCH', url, headers=headers)
@@ -201,23 +198,22 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
     "http://expense-manager-back.local/api/v1/auth/register" \
-    -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"name":"est","email":"laudantium","password":"ipsam"}'
+    -d '{"name":"accusantium","email":"omnis","password":"et"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/auth/register"
 );
 
 let headers = {
-    "Accept": "application/json",
     "Content-Type": "application/json",
+    "Accept": "application/json",
 };
 
 let body = {
-    "name": "est",
-    "email": "laudantium",
-    "password": "ipsam"
+    "name": "accusantium",
+    "email": "omnis",
+    "password": "et"
 }
 
 fetch(url, {
@@ -233,13 +229,12 @@ $response = $client-&gt;post(
     'http://expense-manager-back.local/api/v1/auth/register',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
             'Content-Type' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'est',
-            'email' =&gt; 'laudantium',
-            'password' =&gt; 'ipsam',
+            'name' =&gt; 'accusantium',
+            'email' =&gt; 'omnis',
+            'password' =&gt; 'et',
         ],
     ]
 );
@@ -250,12 +245,11 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/auth/register'
 payload = {
-    "name": "est",
-    "email": "laudantium",
-    "password": "ipsam"
+    "name": "accusantium",
+    "email": "omnis",
+    "password": "et"
 }
 headers = {
-  'Accept': 'application/json',
   'Content-Type': 'application/json'
 }
 response = requests.request('POST', url, headers=headers, json=payload)
@@ -302,16 +296,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
     "http://expense-manager-back.local/api/v1/auth/logout" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/auth/logout"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -326,7 +320,7 @@ $response = $client-&gt;post(
     'http://expense-manager-back.local/api/v1/auth/logout',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -338,7 +332,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/auth/logout'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('POST', url, headers=headers)
@@ -354,16 +348,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/user/profile" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/user/profile"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -378,7 +372,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/user/profile',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -390,7 +384,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/user/profile'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -407,16 +401,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/currency" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/currency"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -431,7 +425,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/currency',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -443,7 +437,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/currency'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -458,24 +452,23 @@ response.json()</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://expense-manager-back.local/api/v1/currency/necessitatibus" \
-    -H "Accept: application/json" \
-    -H "Authorization: Bearer {token}" \
+    "http://expense-manager-back.local/api/v1/currency/odit" \
     -H "Content-Type: application/json" \
-    -d '{"currency_id":1}'
+    -H "Authorization: Bearer {token}" \
+    -d '{"currency_id":13}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://expense-manager-back.local/api/v1/currency/necessitatibus"
+    "http://expense-manager-back.local/api/v1/currency/odit"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 let body = {
-    "currency_id": 1
+    "currency_id": 13
 }
 
 fetch(url, {
@@ -488,15 +481,14 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://expense-manager-back.local/api/v1/currency/necessitatibus',
+    'http://expense-manager-back.local/api/v1/currency/odit',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer {token}',
             'Content-Type' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
-            'currency_id' =&gt; 1,
+            'currency_id' =&gt; 13,
         ],
     ]
 );
@@ -505,14 +497,13 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://expense-manager-back.local/api/v1/currency/necessitatibus'
+url = 'http://expense-manager-back.local/api/v1/currency/odit'
 payload = {
-    "currency_id": 1
+    "currency_id": 13
 }
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {token}',
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {token}'
 }
 response = requests.request('PUT', url, headers=headers, json=payload)
 response.json()</code></pre>
@@ -564,16 +555,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/expense" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -588,7 +579,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/expense',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -600,7 +591,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/expense'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -616,9 +607,8 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
     "http://expense-manager-back.local/api/v1/expense" \
-    -H "Accept: application/json" \
-    -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
+    -H "Authorization: Bearer {token}" \
     -d '{"expense_date":"2020-03-30 21:08:36","category_id":1,"amount":100,"spent_on":"Breakfast","remarks":"Coffee and toast"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -626,9 +616,9 @@ response.json()</code></pre>
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 let body = {
@@ -652,9 +642,8 @@ $response = $client-&gt;post(
     'http://expense-manager-back.local/api/v1/expense',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer {token}',
             'Content-Type' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
             'expense_date' =&gt; '2020-03-30 21:08:36',
@@ -679,9 +668,8 @@ payload = {
     "remarks": "Coffee and toast"
 }
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {token}',
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {token}'
 }
 response = requests.request('POST', url, headers=headers, json=payload)
 response.json()</code></pre>
@@ -739,16 +727,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/expense/summary" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/summary"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -763,7 +751,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/expense/summary',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -775,7 +763,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/expense/summary'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -791,16 +779,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/expense/1" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/1"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -815,7 +803,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/expense/1',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -827,7 +815,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/expense/1'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -860,9 +848,8 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
     "http://expense-manager-back.local/api/v1/expense/1" \
-    -H "Accept: application/json" \
-    -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
+    -H "Authorization: Bearer {token}" \
     -d '{"category_id":1,"amount":100,"spent_on":"Breakfast","remarks":"Coffee and toast"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -870,9 +857,9 @@ response.json()</code></pre>
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 let body = {
@@ -895,9 +882,8 @@ $response = $client-&gt;put(
     'http://expense-manager-back.local/api/v1/expense/1',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer {token}',
             'Content-Type' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
             'category_id' =&gt; 1,
@@ -920,9 +906,8 @@ payload = {
     "remarks": "Coffee and toast"
 }
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {token}',
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {token}'
 }
 response = requests.request('PUT', url, headers=headers, json=payload)
 response.json()</code></pre>
@@ -991,16 +976,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
     "http://expense-manager-back.local/api/v1/expense/1" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/1"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -1015,7 +1000,7 @@ $response = $client-&gt;delete(
     'http://expense-manager-back.local/api/v1/expense/1',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -1027,7 +1012,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/expense/1'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('DELETE', url, headers=headers)
@@ -1061,16 +1046,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/expense/category" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/category"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -1085,7 +1070,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/expense/category',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -1097,7 +1082,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/expense/category'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -1113,9 +1098,8 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
     "http://expense-manager-back.local/api/v1/expense/category" \
-    -H "Accept: application/json" \
-    -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
+    -H "Authorization: Bearer {token}" \
     -d '{"category_name":"Shopping"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1123,9 +1107,9 @@ response.json()</code></pre>
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 let body = {
@@ -1145,9 +1129,8 @@ $response = $client-&gt;post(
     'http://expense-manager-back.local/api/v1/expense/category',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer {token}',
             'Content-Type' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
             'category_name' =&gt; 'Shopping',
@@ -1164,9 +1147,8 @@ payload = {
     "category_name": "Shopping"
 }
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {token}',
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {token}'
 }
 response = requests.request('POST', url, headers=headers, json=payload)
 response.json()</code></pre>
@@ -1200,16 +1182,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/expense/category/1" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/category/1"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -1224,7 +1206,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/expense/category/1',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -1236,7 +1218,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/expense/category/1'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -1269,9 +1251,8 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
     "http://expense-manager-back.local/api/v1/expense/category/1" \
-    -H "Accept: application/json" \
-    -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
+    -H "Authorization: Bearer {token}" \
     -d '{"category_name":"Travel"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1279,9 +1260,9 @@ response.json()</code></pre>
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 let body = {
@@ -1301,9 +1282,8 @@ $response = $client-&gt;put(
     'http://expense-manager-back.local/api/v1/expense/category/1',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer {token}',
             'Content-Type' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
             'category_name' =&gt; 'Travel',
@@ -1320,9 +1300,8 @@ payload = {
     "category_name": "Travel"
 }
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {token}',
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {token}'
 }
 response = requests.request('PUT', url, headers=headers, json=payload)
 response.json()</code></pre>
@@ -1373,16 +1352,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
     "http://expense-manager-back.local/api/v1/expense/category/1" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/category/1"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -1397,7 +1376,7 @@ $response = $client-&gt;delete(
     'http://expense-manager-back.local/api/v1/expense/category/1',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -1409,7 +1388,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/expense/category/1'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('DELETE', url, headers=headers)
@@ -1442,17 +1421,27 @@ response.json()</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/income" \
-    -H "Accept: application/json" \
+    -G "http://expense-manager-back.local/api/v1/income?per_page=10&amp;sort_col=created_at&amp;sort_order=desc&amp;search_col=category_name&amp;search_by=Salary" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income"
 );
 
+let params = {
+    "per_page": "10",
+    "sort_col": "created_at",
+    "sort_order": "desc",
+    "search_col": "category_name",
+    "search_by": "Salary",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -1467,8 +1456,15 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/income',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
+        ],
+        'query' =&gt; [
+            'per_page'=&gt; '10',
+            'sort_col'=&gt; 'created_at',
+            'sort_order'=&gt; 'desc',
+            'search_col'=&gt; 'category_name',
+            'search_by'=&gt; 'Salary',
         ],
     ]
 );
@@ -1478,14 +1474,58 @@ print_r(json_decode((string) $body));</code></pre>
 import json
 
 url = 'http://expense-manager-back.local/api/v1/income'
+params = {
+  'per_page': '10',
+  'sort_col': 'created_at',
+  'sort_order': 'desc',
+  'search_col': 'category_name',
+  'search_by': 'Salary',
+}
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
-response = requests.request('GET', url, headers=headers)
+response = requests.request('GET', url, headers=headers, params=params)
 response.json()</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/v1/income</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>per_page</code></td>
+<td>optional</td>
+<td>Rows per page (default: 10)</td>
+</tr>
+<tr>
+<td><code>sort_col</code></td>
+<td>optional</td>
+<td>Column name to sort (default: id)</td>
+</tr>
+<tr>
+<td><code>sort_order</code></td>
+<td>optional</td>
+<td>Column sort order (asc|desc)</td>
+</tr>
+<tr>
+<td><code>search_col</code></td>
+<td>optional</td>
+<td>Column name to search</td>
+</tr>
+<tr>
+<td><code>search_by</code></td>
+<td>optional</td>
+<td>Text to search for</td>
+</tr>
+</tbody>
+</table>
 <!-- END_48796c45c860f3a6b27d767b36ba480c -->
 <!-- START_e745a52cafdc8b3cd8351b9b263f7714 -->
 <h2>Store income</h2>
@@ -1495,9 +1535,8 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
     "http://expense-manager-back.local/api/v1/income" \
-    -H "Accept: application/json" \
-    -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
+    -H "Authorization: Bearer {token}" \
     -d '{"income_date":"2020-03-30 21:08:36","category_id":1,"amount":100,"source":"Salary","notes":"Through bank"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1505,9 +1544,9 @@ response.json()</code></pre>
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 let body = {
@@ -1531,9 +1570,8 @@ $response = $client-&gt;post(
     'http://expense-manager-back.local/api/v1/income',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer {token}',
             'Content-Type' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
             'income_date' =&gt; '2020-03-30 21:08:36',
@@ -1558,9 +1596,8 @@ payload = {
     "notes": "Through bank"
 }
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {token}',
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {token}'
 }
 response = requests.request('POST', url, headers=headers, json=payload)
 response.json()</code></pre>
@@ -1618,16 +1655,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/income/summary" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/summary"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -1642,7 +1679,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/income/summary',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -1654,7 +1691,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/income/summary'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -1670,16 +1707,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/income/1" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/1"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -1694,7 +1731,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/income/1',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -1706,7 +1743,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/income/1'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -1739,9 +1776,8 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
     "http://expense-manager-back.local/api/v1/income/1" \
-    -H "Accept: application/json" \
-    -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
+    -H "Authorization: Bearer {token}" \
     -d '{"income_date":"2020-03-30 21:08:36","category_id":1,"amount":100,"source":"Business","notes":"Cash"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1749,9 +1785,9 @@ response.json()</code></pre>
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 let body = {
@@ -1775,9 +1811,8 @@ $response = $client-&gt;put(
     'http://expense-manager-back.local/api/v1/income/1',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer {token}',
             'Content-Type' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
             'income_date' =&gt; '2020-03-30 21:08:36',
@@ -1802,9 +1837,8 @@ payload = {
     "notes": "Cash"
 }
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {token}',
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {token}'
 }
 response = requests.request('PUT', url, headers=headers, json=payload)
 response.json()</code></pre>
@@ -1879,16 +1913,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
     "http://expense-manager-back.local/api/v1/income/1" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/1"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -1903,7 +1937,7 @@ $response = $client-&gt;delete(
     'http://expense-manager-back.local/api/v1/income/1',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -1915,7 +1949,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/income/1'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('DELETE', url, headers=headers)
@@ -1949,16 +1983,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/income/category" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/category"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -1973,7 +2007,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/income/category',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -1985,7 +2019,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/income/category'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -2001,9 +2035,8 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
     "http://expense-manager-back.local/api/v1/income/category" \
-    -H "Accept: application/json" \
-    -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
+    -H "Authorization: Bearer {token}" \
     -d '{"category_name":"Salary"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2011,9 +2044,9 @@ response.json()</code></pre>
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 let body = {
@@ -2033,9 +2066,8 @@ $response = $client-&gt;post(
     'http://expense-manager-back.local/api/v1/income/category',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer {token}',
             'Content-Type' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
             'category_name' =&gt; 'Salary',
@@ -2052,9 +2084,8 @@ payload = {
     "category_name": "Salary"
 }
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {token}',
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {token}'
 }
 response = requests.request('POST', url, headers=headers, json=payload)
 response.json()</code></pre>
@@ -2088,16 +2119,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/income/category/1" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/category/1"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -2112,7 +2143,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/income/category/1',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -2124,7 +2155,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/income/category/1'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -2157,9 +2188,8 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
     "http://expense-manager-back.local/api/v1/income/category/1" \
-    -H "Accept: application/json" \
-    -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
+    -H "Authorization: Bearer {token}" \
     -d '{"category_name":"Profit"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2167,9 +2197,9 @@ response.json()</code></pre>
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 let body = {
@@ -2189,9 +2219,8 @@ $response = $client-&gt;put(
     'http://expense-manager-back.local/api/v1/income/category/1',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer {token}',
             'Content-Type' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
             'category_name' =&gt; 'Profit',
@@ -2208,9 +2237,8 @@ payload = {
     "category_name": "Profit"
 }
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {token}',
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {token}'
 }
 response = requests.request('PUT', url, headers=headers, json=payload)
 response.json()</code></pre>
@@ -2261,16 +2289,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
     "http://expense-manager-back.local/api/v1/income/category/1" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/category/1"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -2285,7 +2313,7 @@ $response = $client-&gt;delete(
     'http://expense-manager-back.local/api/v1/income/category/1',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -2297,7 +2325,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/income/category/1'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('DELETE', url, headers=headers)
@@ -2331,16 +2359,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/report/expense/months/summary" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/report/expense/months/summary"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -2355,7 +2383,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/report/expense/months/summary',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -2367,7 +2395,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/report/expense/months/summary'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -2383,16 +2411,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/report/income/months/summary" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/report/income/months/summary"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -2407,7 +2435,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/report/income/months/summary',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -2419,7 +2447,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/report/income/months/summary'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -2435,16 +2463,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/report/transaction" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/report/transaction"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -2459,7 +2487,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/report/transaction',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -2471,7 +2499,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/report/transaction'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -2488,16 +2516,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/user" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/user"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -2512,7 +2540,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/user',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -2524,7 +2552,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/user'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -2540,9 +2568,8 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
     "http://expense-manager-back.local/api/v1/user/password" \
-    -H "Accept: application/json" \
-    -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
+    -H "Authorization: Bearer {token}" \
     -d '{"old_password":"123456","new_password":"234567","confirm_password":"234567"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2550,9 +2577,9 @@ response.json()</code></pre>
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 let body = {
@@ -2574,9 +2601,8 @@ $response = $client-&gt;put(
     'http://expense-manager-back.local/api/v1/user/password',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer {token}',
             'Content-Type' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
             'old_password' =&gt; '123456',
@@ -2597,9 +2623,8 @@ payload = {
     "confirm_password": "234567"
 }
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {token}',
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {token}'
 }
 response = requests.request('PUT', url, headers=headers, json=payload)
 response.json()</code></pre>
@@ -2645,9 +2670,8 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
     "http://expense-manager-back.local/api/v1/user/update" \
-    -H "Accept: application/json" \
-    -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
+    -H "Authorization: Bearer {token}" \
     -d '{"name":"Triss","email":"tiss@email.com","currency_id":13}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2655,9 +2679,9 @@ response.json()</code></pre>
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 let body = {
@@ -2679,9 +2703,8 @@ $response = $client-&gt;put(
     'http://expense-manager-back.local/api/v1/user/update',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer {token}',
             'Content-Type' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
             'name' =&gt; 'Triss',
@@ -2702,9 +2725,8 @@ payload = {
     "currency_id": 13
 }
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {token}',
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {token}'
 }
 response = requests.request('PUT', url, headers=headers, json=payload)
 response.json()</code></pre>
@@ -2750,16 +2772,16 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://expense-manager-back.local/api/v1/user/1" \
-    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/user/1"
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 fetch(url, {
@@ -2774,7 +2796,7 @@ $response = $client-&gt;get(
     'http://expense-manager-back.local/api/v1/user/1',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
+            'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
     ]
@@ -2786,7 +2808,7 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/user/1'
 headers = {
-  'Accept': 'application/json',
+  'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
 response = requests.request('GET', url, headers=headers)
@@ -2819,9 +2841,8 @@ response.json()</code></pre>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
     "http://expense-manager-back.local/api/v1/user/1" \
-    -H "Accept: application/json" \
-    -H "Authorization: Bearer {token}" \
     -H "Content-Type: application/json" \
+    -H "Authorization: Bearer {token}" \
     -d '{"name":"Ciri","email":"cir@email.com","currency_id":1}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2829,9 +2850,9 @@ response.json()</code></pre>
 );
 
 let headers = {
-    "Accept": "application/json",
-    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
 };
 
 let body = {
@@ -2853,9 +2874,8 @@ $response = $client-&gt;put(
     'http://expense-manager-back.local/api/v1/user/1',
     [
         'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-            'Authorization' =&gt; 'Bearer {token}',
             'Content-Type' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
             'name' =&gt; 'Ciri',
@@ -2876,9 +2896,8 @@ payload = {
     "currency_id": 1
 }
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {token}',
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {token}'
 }
 response = requests.request('PUT', url, headers=headers, json=payload)
 response.json()</code></pre>
