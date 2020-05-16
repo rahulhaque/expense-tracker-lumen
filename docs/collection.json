@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Expense Tracker API",
-        "_postman_id": "81751bae-29db-46d0-b572-cabc77a8865c",
+        "_postman_id": "9331db91-d87f-4fe6-9a20-f4cdee29c9b1",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -93,7 +93,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"accusantium\",\n    \"email\": \"omnis\",\n    \"password\": \"et\"\n}"
+                            "raw": "{\n    \"name\": \"blanditiis\",\n    \"email\": \"beatae\",\n    \"password\": \"minima\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -213,7 +213,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "odit",
+                                    "value": "velit",
                                     "description": "User id of whom to update currency"
                                 }
                             ]
@@ -235,7 +235,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"currency_id\": 13\n}"
+                            "raw": "{\n    \"currency_id\": 14\n}"
                         },
                         "description": "",
                         "response": []
@@ -254,7 +254,38 @@
                             "protocol": "http",
                             "host": "expense-manager-back.local",
                             "path": "api\/v1\/expense",
-                            "query": []
+                            "query": [
+                                {
+                                    "key": "per_page",
+                                    "value": "10",
+                                    "description": "Rows per page (default: 10)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort_col",
+                                    "value": "created_at",
+                                    "description": "Column name to sort (default: id)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "desc",
+                                    "description": "Column sort order (asc\\|desc)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search_col",
+                                    "value": "category_name",
+                                    "description": "Column name to search",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search_by",
+                                    "value": "Lent",
+                                    "description": "Text to search for",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [

@@ -199,7 +199,7 @@ response.json()</code></pre>
 <pre><code class="language-bash">curl -X POST \
     "http://expense-manager-back.local/api/v1/auth/register" \
     -H "Content-Type: application/json" \
-    -d '{"name":"accusantium","email":"omnis","password":"et"}'
+    -d '{"name":"blanditiis","email":"beatae","password":"minima"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/auth/register"
@@ -211,9 +211,9 @@ let headers = {
 };
 
 let body = {
-    "name": "accusantium",
-    "email": "omnis",
-    "password": "et"
+    "name": "blanditiis",
+    "email": "beatae",
+    "password": "minima"
 }
 
 fetch(url, {
@@ -232,9 +232,9 @@ $response = $client-&gt;post(
             'Content-Type' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'accusantium',
-            'email' =&gt; 'omnis',
-            'password' =&gt; 'et',
+            'name' =&gt; 'blanditiis',
+            'email' =&gt; 'beatae',
+            'password' =&gt; 'minima',
         ],
     ]
 );
@@ -245,9 +245,9 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/auth/register'
 payload = {
-    "name": "accusantium",
-    "email": "omnis",
-    "password": "et"
+    "name": "blanditiis",
+    "email": "beatae",
+    "password": "minima"
 }
 headers = {
   'Content-Type': 'application/json'
@@ -452,13 +452,13 @@ response.json()</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://expense-manager-back.local/api/v1/currency/odit" \
+    "http://expense-manager-back.local/api/v1/currency/velit" \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}" \
-    -d '{"currency_id":13}'
+    -d '{"currency_id":14}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://expense-manager-back.local/api/v1/currency/odit"
+    "http://expense-manager-back.local/api/v1/currency/velit"
 );
 
 let headers = {
@@ -468,7 +468,7 @@ let headers = {
 };
 
 let body = {
-    "currency_id": 13
+    "currency_id": 14
 }
 
 fetch(url, {
@@ -481,14 +481,14 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://expense-manager-back.local/api/v1/currency/odit',
+    'http://expense-manager-back.local/api/v1/currency/velit',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
-            'currency_id' =&gt; 13,
+            'currency_id' =&gt; 14,
         ],
     ]
 );
@@ -497,9 +497,9 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://expense-manager-back.local/api/v1/currency/odit'
+url = 'http://expense-manager-back.local/api/v1/currency/velit'
 payload = {
-    "currency_id": 13
+    "currency_id": 14
 }
 headers = {
   'Content-Type': 'application/json',
@@ -554,12 +554,22 @@ response.json()</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/expense" \
+    -G "http://expense-manager-back.local/api/v1/expense?per_page=10&amp;sort_col=created_at&amp;sort_order=desc&amp;search_col=category_name&amp;search_by=Lent" \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense"
 );
+
+let params = {
+    "per_page": "10",
+    "sort_col": "created_at",
+    "sort_order": "desc",
+    "search_col": "category_name",
+    "search_by": "Lent",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -582,6 +592,13 @@ $response = $client-&gt;get(
             'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
+        'query' =&gt; [
+            'per_page'=&gt; '10',
+            'sort_col'=&gt; 'created_at',
+            'sort_order'=&gt; 'desc',
+            'search_col'=&gt; 'category_name',
+            'search_by'=&gt; 'Lent',
+        ],
     ]
 );
 $body = $response-&gt;getBody();
@@ -590,14 +607,58 @@ print_r(json_decode((string) $body));</code></pre>
 import json
 
 url = 'http://expense-manager-back.local/api/v1/expense'
+params = {
+  'per_page': '10',
+  'sort_col': 'created_at',
+  'sort_order': 'desc',
+  'search_col': 'category_name',
+  'search_by': 'Lent',
+}
 headers = {
   'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
-response = requests.request('GET', url, headers=headers)
+response = requests.request('GET', url, headers=headers, params=params)
 response.json()</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/v1/expense</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>per_page</code></td>
+<td>optional</td>
+<td>Rows per page (default: 10)</td>
+</tr>
+<tr>
+<td><code>sort_col</code></td>
+<td>optional</td>
+<td>Column name to sort (default: id)</td>
+</tr>
+<tr>
+<td><code>sort_order</code></td>
+<td>optional</td>
+<td>Column sort order (asc|desc)</td>
+</tr>
+<tr>
+<td><code>search_col</code></td>
+<td>optional</td>
+<td>Column name to search</td>
+</tr>
+<tr>
+<td><code>search_by</code></td>
+<td>optional</td>
+<td>Text to search for</td>
+</tr>
+</tbody>
+</table>
 <!-- END_6c9a91483f538cb21d2f06cea559b1ef -->
 <!-- START_60579bdd3d33b3083dc46544d75a1b17 -->
 <h2>Store expense</h2>

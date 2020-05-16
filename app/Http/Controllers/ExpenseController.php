@@ -16,6 +16,12 @@ class ExpenseController extends Controller
     /**
      * Get expenses
      *
+     * @queryParam per_page Rows per page (default: 10) Example: 10
+     * @queryParam sort_col Column name to sort (default: id) Example: created_at
+     * @queryParam sort_order Column sort order (asc\|desc) Example: desc
+     * @queryParam search_col Column name to search Example: category_name
+     * @queryParam search_by Text to search for Example: Lent
+     *
      * @url: /api/v1/expense
      *
      * @param Request $request

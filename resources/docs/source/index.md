@@ -188,7 +188,7 @@ response.json()
 curl -X POST \
     "http://expense-manager-back.local/api/v1/auth/register" \
     -H "Content-Type: application/json" \
-    -d '{"name":"accusantium","email":"omnis","password":"et"}'
+    -d '{"name":"blanditiis","email":"beatae","password":"minima"}'
 
 ```
 
@@ -203,9 +203,9 @@ let headers = {
 };
 
 let body = {
-    "name": "accusantium",
-    "email": "omnis",
-    "password": "et"
+    "name": "blanditiis",
+    "email": "beatae",
+    "password": "minima"
 }
 
 fetch(url, {
@@ -227,9 +227,9 @@ $response = $client->post(
             'Content-Type' => 'application/json',
         ],
         'json' => [
-            'name' => 'accusantium',
-            'email' => 'omnis',
-            'password' => 'et',
+            'name' => 'blanditiis',
+            'email' => 'beatae',
+            'password' => 'minima',
         ],
     ]
 );
@@ -243,9 +243,9 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/auth/register'
 payload = {
-    "name": "accusantium",
-    "email": "omnis",
-    "password": "et"
+    "name": "blanditiis",
+    "email": "beatae",
+    "password": "minima"
 }
 headers = {
   'Content-Type': 'application/json'
@@ -486,16 +486,16 @@ response.json()
 
 ```bash
 curl -X PUT \
-    "http://expense-manager-back.local/api/v1/currency/odit" \
+    "http://expense-manager-back.local/api/v1/currency/velit" \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}" \
-    -d '{"currency_id":13}'
+    -d '{"currency_id":14}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://expense-manager-back.local/api/v1/currency/odit"
+    "http://expense-manager-back.local/api/v1/currency/velit"
 );
 
 let headers = {
@@ -505,7 +505,7 @@ let headers = {
 };
 
 let body = {
-    "currency_id": 13
+    "currency_id": 14
 }
 
 fetch(url, {
@@ -521,14 +521,14 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->put(
-    'http://expense-manager-back.local/api/v1/currency/odit',
+    'http://expense-manager-back.local/api/v1/currency/velit',
     [
         'headers' => [
             'Content-Type' => 'application/json',
             'Authorization' => 'Bearer {token}',
         ],
         'json' => [
-            'currency_id' => 13,
+            'currency_id' => 14,
         ],
     ]
 );
@@ -540,9 +540,9 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://expense-manager-back.local/api/v1/currency/odit'
+url = 'http://expense-manager-back.local/api/v1/currency/velit'
 payload = {
-    "currency_id": 13
+    "currency_id": 14
 }
 headers = {
   'Content-Type': 'application/json',
@@ -580,7 +580,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/expense" \
+    -G "http://expense-manager-back.local/api/v1/expense?per_page=10&sort_col=created_at&sort_order=desc&search_col=category_name&search_by=Lent" \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer {token}"
 ```
@@ -589,6 +589,16 @@ curl -X GET \
 const url = new URL(
     "http://expense-manager-back.local/api/v1/expense"
 );
+
+let params = {
+    "per_page": "10",
+    "sort_col": "created_at",
+    "sort_order": "desc",
+    "search_col": "category_name",
+    "search_by": "Lent",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -614,6 +624,13 @@ $response = $client->get(
             'Content-Type' => 'application/json',
             'Authorization' => 'Bearer {token}',
         ],
+        'query' => [
+            'per_page'=> '10',
+            'sort_col'=> 'created_at',
+            'sort_order'=> 'desc',
+            'search_col'=> 'category_name',
+            'search_by'=> 'Lent',
+        ],
     ]
 );
 $body = $response->getBody();
@@ -625,11 +642,18 @@ import requests
 import json
 
 url = 'http://expense-manager-back.local/api/v1/expense'
+params = {
+  'per_page': '10',
+  'sort_col': 'created_at',
+  'sort_order': 'desc',
+  'search_col': 'category_name',
+  'search_by': 'Lent',
+}
 headers = {
   'Content-Type': 'application/json',
   'Authorization': 'Bearer {token}'
 }
-response = requests.request('GET', url, headers=headers)
+response = requests.request('GET', url, headers=headers, params=params)
 response.json()
 ```
 
@@ -638,6 +662,15 @@ response.json()
 ### HTTP Request
 `GET api/v1/expense`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `per_page` |  optional  | Rows per page (default: 10)
+    `sort_col` |  optional  | Column name to sort (default: id)
+    `sort_order` |  optional  | Column sort order (asc\|desc)
+    `search_col` |  optional  | Column name to search
+    `search_by` |  optional  | Text to search for
 
 <!-- END_6c9a91483f538cb21d2f06cea559b1ef -->
 
