@@ -40,6 +40,7 @@ class ExpenseCategoryController extends Controller
         if ($request->get('search_col') || $request->get('search_by')) {
             $query->where(
                 $request->get('search_col') ? $request->get('search_col') : 'id',
+                'like',
                 $request->get('search_by') ? $request->get('search_by') : ''
             );
         }
