@@ -31,23 +31,11 @@ class IncomeCategoryController extends Controller
         ]);
 
         $query = TransactionCategory::where('created_by', Auth::id())
-            ->where('category_type', 'Income')
-            ->orderBy(
-            $request->get('sort_col') ? $request->get('sort_col') : 'id',
-            $request->get('sort_order') ? $request->get('sort_order') : 'asc'
-        );
+            ->where('category_type', 'Income');
 
-        if ($request->get('search_col') || $request->get('search_by')) {
-            $query->where(
-                $request->get('search_col') ? $request->get('search_col') : 'id',
-                'like',
-                $request->get('search_by') ? $request->get('search_by') : ''
-            );
-        }
+        $result = $query->apify();
 
-        return response()->json(
-            $query->paginate($request->get('per_page') ? $request->get('per_page') : 10)
-        );
+        return response()->json($result);
     }
 
     /**

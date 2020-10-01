@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Traits\ApifyScopeTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class TransactionCategory extends Model
 {
+    use ApifyScopeTrait;
+
     public function creator()
     {
         return $this->belongsTo(User::class, 'created_by');
