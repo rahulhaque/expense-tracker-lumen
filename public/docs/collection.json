@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Expense Tracker API",
-        "_postman_id": "9331db91-d87f-4fe6-9a20-f4cdee29c9b1",
+        "_postman_id": "2236233d-6f84-4504-95e1-e62b6785e8fb",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -93,7 +93,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"blanditiis\",\n    \"email\": \"beatae\",\n    \"password\": \"minima\"\n}"
+                            "raw": "{\n    \"name\": \"sed\",\n    \"email\": \"porro\",\n    \"password\": \"modi\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -213,7 +213,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "velit",
+                                    "value": "suscipit",
                                     "description": "User id of whom to update currency"
                                 }
                             ]
@@ -235,7 +235,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"currency_id\": 14\n}"
+                            "raw": "{\n    \"currency_id\": 4\n}"
                         },
                         "description": "",
                         "response": []

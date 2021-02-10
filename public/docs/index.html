@@ -12,7 +12,7 @@
 
           <script>
         $(function() {
-            setupLanguages(["bash","javascript","php","python"]);
+            setupLanguages(["javascript","php","python"]);
         });
       </script>
       </head>
@@ -27,7 +27,6 @@
     <div class="tocify-wrapper">
         <img src="images/logo.png" />
                     <div class="lang-selector">
-                                  <a href="#" data-language-name="bash">bash</a>
                                   <a href="#" data-language-name="javascript">javascript</a>
                                   <a href="#" data-language-name="php">php</a>
                                   <a href="#" data-language-name="python">python</a>
@@ -56,11 +55,6 @@
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "http://expense-manager-back.local/api/v1/auth/login" \
-    -H "Content-Type: application/json" \
-    -d '{"email":"example@email.com","password":"123456"}'
-</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/auth/login"
 );
@@ -145,10 +139,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PATCH \
-    "http://expense-manager-back.local/api/v1/auth/refresh" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/auth/refresh"
 );
@@ -196,11 +186,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "http://expense-manager-back.local/api/v1/auth/register" \
-    -H "Content-Type: application/json" \
-    -d '{"name":"blanditiis","email":"beatae","password":"minima"}'
-</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/auth/register"
 );
@@ -211,9 +196,9 @@ let headers = {
 };
 
 let body = {
-    "name": "blanditiis",
-    "email": "beatae",
-    "password": "minima"
+    "name": "sed",
+    "email": "porro",
+    "password": "modi"
 }
 
 fetch(url, {
@@ -232,9 +217,9 @@ $response = $client-&gt;post(
             'Content-Type' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'blanditiis',
-            'email' =&gt; 'beatae',
-            'password' =&gt; 'minima',
+            'name' =&gt; 'sed',
+            'email' =&gt; 'porro',
+            'password' =&gt; 'modi',
         ],
     ]
 );
@@ -245,9 +230,9 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/auth/register'
 payload = {
-    "name": "blanditiis",
-    "email": "beatae",
-    "password": "minima"
+    "name": "sed",
+    "email": "porro",
+    "password": "modi"
 }
 headers = {
   'Content-Type': 'application/json'
@@ -294,10 +279,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "http://expense-manager-back.local/api/v1/auth/logout" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/auth/logout"
 );
@@ -346,10 +327,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/user/profile" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/user/profile"
 );
@@ -399,10 +376,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/currency" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/currency"
 );
@@ -451,14 +424,8 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT \
-    "http://expense-manager-back.local/api/v1/currency/velit" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"currency_id":14}'
-</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://expense-manager-back.local/api/v1/currency/velit"
+    "http://expense-manager-back.local/api/v1/currency/suscipit"
 );
 
 let headers = {
@@ -468,7 +435,7 @@ let headers = {
 };
 
 let body = {
-    "currency_id": 14
+    "currency_id": 4
 }
 
 fetch(url, {
@@ -481,14 +448,14 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://expense-manager-back.local/api/v1/currency/velit',
+    'http://expense-manager-back.local/api/v1/currency/suscipit',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
-            'currency_id' =&gt; 14,
+            'currency_id' =&gt; 4,
         ],
     ]
 );
@@ -497,9 +464,9 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://expense-manager-back.local/api/v1/currency/velit'
+url = 'http://expense-manager-back.local/api/v1/currency/suscipit'
 payload = {
-    "currency_id": 14
+    "currency_id": 4
 }
 headers = {
   'Content-Type': 'application/json',
@@ -553,10 +520,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/expense?per_page=10&amp;sort_col=created_at&amp;sort_order=desc&amp;search_col=category_name&amp;search_by=Lent" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense"
 );
@@ -666,12 +629,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "http://expense-manager-back.local/api/v1/expense" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"expense_date":"2020-03-30 21:08:36","category_id":1,"amount":100,"spent_on":"Breakfast","remarks":"Coffee and toast"}'
-</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense"
 );
@@ -786,10 +743,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/expense/summary" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/summary"
 );
@@ -838,10 +791,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/expense/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/1"
 );
@@ -907,12 +856,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT \
-    "http://expense-manager-back.local/api/v1/expense/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"category_id":1,"amount":100,"spent_on":"Breakfast","remarks":"Coffee and toast"}'
-</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/1"
 );
@@ -1035,10 +978,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X DELETE \
-    "http://expense-manager-back.local/api/v1/expense/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/1"
 );
@@ -1105,10 +1044,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/expense/category" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/category"
 );
@@ -1157,12 +1092,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "http://expense-manager-back.local/api/v1/expense/category" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"category_name":"Shopping"}'
-</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/category"
 );
@@ -1241,10 +1170,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/expense/category/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/category/1"
 );
@@ -1310,12 +1235,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT \
-    "http://expense-manager-back.local/api/v1/expense/category/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"category_name":"Travel"}'
-</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/category/1"
 );
@@ -1411,10 +1330,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X DELETE \
-    "http://expense-manager-back.local/api/v1/expense/category/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/category/1"
 );
@@ -1481,10 +1396,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/income?per_page=10&amp;sort_col=created_at&amp;sort_order=desc&amp;search_col=category_name&amp;search_by=Salary" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income"
 );
@@ -1594,12 +1505,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "http://expense-manager-back.local/api/v1/income" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"income_date":"2020-03-30 21:08:36","category_id":1,"amount":100,"source":"Salary","notes":"Through bank"}'
-</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income"
 );
@@ -1714,10 +1619,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/income/summary" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/summary"
 );
@@ -1766,10 +1667,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/income/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/1"
 );
@@ -1835,12 +1732,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT \
-    "http://expense-manager-back.local/api/v1/income/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"income_date":"2020-03-30 21:08:36","category_id":1,"amount":100,"source":"Business","notes":"Cash"}'
-</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/1"
 );
@@ -1972,10 +1863,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X DELETE \
-    "http://expense-manager-back.local/api/v1/income/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/1"
 );
@@ -2042,10 +1929,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/income/category" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/category"
 );
@@ -2094,12 +1977,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "http://expense-manager-back.local/api/v1/income/category" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"category_name":"Salary"}'
-</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/category"
 );
@@ -2178,10 +2055,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/income/category/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/category/1"
 );
@@ -2247,12 +2120,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT \
-    "http://expense-manager-back.local/api/v1/income/category/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"category_name":"Profit"}'
-</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/category/1"
 );
@@ -2348,10 +2215,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X DELETE \
-    "http://expense-manager-back.local/api/v1/income/category/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/income/category/1"
 );
@@ -2418,10 +2281,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/report/expense/months/summary" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/report/expense/months/summary"
 );
@@ -2470,10 +2329,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/report/income/months/summary" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/report/income/months/summary"
 );
@@ -2522,10 +2377,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/report/transaction" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/report/transaction"
 );
@@ -2575,10 +2426,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/user" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/user"
 );
@@ -2627,12 +2474,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT \
-    "http://expense-manager-back.local/api/v1/user/password" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"old_password":"123456","new_password":"234567","confirm_password":"234567"}'
-</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/user/password"
 );
@@ -2729,12 +2570,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT \
-    "http://expense-manager-back.local/api/v1/user/update" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"name":"Triss","email":"tiss@email.com","currency_id":13}'
-</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/user/update"
 );
@@ -2831,10 +2666,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/user/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/user/1"
 );
@@ -2900,12 +2731,6 @@ response.json()</code></pre>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT \
-    "http://expense-manager-back.local/api/v1/user/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"name":"Ciri","email":"cir@email.com","currency_id":1}'
-</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://expense-manager-back.local/api/v1/user/1"
 );
@@ -3016,7 +2841,6 @@ response.json()</code></pre>
       </div>
       <div class="dark-box">
                         <div class="lang-selector">
-                                    <a href="#" data-language-name="bash">bash</a>
                                     <a href="#" data-language-name="javascript">javascript</a>
                                     <a href="#" data-language-name="php">php</a>
                                     <a href="#" data-language-name="python">python</a>

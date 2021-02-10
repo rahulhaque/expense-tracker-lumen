@@ -17,7 +17,7 @@ class UserController extends Controller
     /**
      * Get users
      *
-     * @url: /api/v1/user
+     * @url /api/v1/user
      *
      * @return \Illuminate\Http\Response
      */
@@ -31,7 +31,7 @@ class UserController extends Controller
      *
      * @urlParam id required User id to show Example: 1
      *
-     * @url: /api/v1/user/{id}
+     * @url /api/v1/user/{id}
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -53,7 +53,7 @@ class UserController extends Controller
      * @bodyParam email string required User email Example: cir@email.com
      * @bodyParam currency_id int required User currency id Example: 1
      *
-     * @url: /api/v1/user/{id}
+     * @url /api/v1/user/{id}
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
@@ -89,7 +89,7 @@ class UserController extends Controller
      * @bodyParam email string required User email Example: tiss@email.com
      * @bodyParam currency_id int required User currency id Example: 13
      *
-     * @url: /api/v1/user/update
+     * @url /api/v1/user/update
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -124,7 +124,7 @@ class UserController extends Controller
      * @bodyParam new_password string required New password Example: 234567
      * @bodyParam confirm_password string required Confirm password Example: 234567
      *
-     * @url: /api/v1/user/password
+     * @url /api/v1/user/password
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse

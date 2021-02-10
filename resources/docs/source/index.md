@@ -2,7 +2,6 @@
 title: API Reference
 
 language_tabs:
-- bash
 - javascript
 - php
 - python
@@ -29,14 +28,6 @@ Welcome to the generated API reference.
 ## Get token
 
 > Example request:
-
-```bash
-curl -X POST \
-    "http://expense-manager-back.local/api/v1/auth/login" \
-    -H "Content-Type: application/json" \
-    -d '{"email":"example@email.com","password":"123456"}'
-
-```
 
 ```javascript
 const url = new URL(
@@ -116,13 +107,6 @@ Parameter | Type | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X PATCH \
-    "http://expense-manager-back.local/api/v1/auth/refresh" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/auth/refresh"
@@ -184,14 +168,6 @@ response.json()
 
 > Example request:
 
-```bash
-curl -X POST \
-    "http://expense-manager-back.local/api/v1/auth/register" \
-    -H "Content-Type: application/json" \
-    -d '{"name":"blanditiis","email":"beatae","password":"minima"}'
-
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/auth/register"
@@ -203,9 +179,9 @@ let headers = {
 };
 
 let body = {
-    "name": "blanditiis",
-    "email": "beatae",
-    "password": "minima"
+    "name": "sed",
+    "email": "porro",
+    "password": "modi"
 }
 
 fetch(url, {
@@ -227,9 +203,9 @@ $response = $client->post(
             'Content-Type' => 'application/json',
         ],
         'json' => [
-            'name' => 'blanditiis',
-            'email' => 'beatae',
-            'password' => 'minima',
+            'name' => 'sed',
+            'email' => 'porro',
+            'password' => 'modi',
         ],
     ]
 );
@@ -243,9 +219,9 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/auth/register'
 payload = {
-    "name": "blanditiis",
-    "email": "beatae",
-    "password": "minima"
+    "name": "sed",
+    "email": "porro",
+    "password": "modi"
 }
 headers = {
   'Content-Type': 'application/json'
@@ -273,13 +249,6 @@ Parameter | Type | Status | Description
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X POST \
-    "http://expense-manager-back.local/api/v1/auth/logout" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
 
 ```javascript
 const url = new URL(
@@ -342,13 +311,6 @@ response.json()
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/user/profile" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
 
 ```javascript
 const url = new URL(
@@ -415,13 +377,6 @@ response.json()
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/currency" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/currency"
@@ -484,18 +439,9 @@ response.json()
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X PUT \
-    "http://expense-manager-back.local/api/v1/currency/velit" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"currency_id":14}'
-
-```
-
 ```javascript
 const url = new URL(
-    "http://expense-manager-back.local/api/v1/currency/velit"
+    "http://expense-manager-back.local/api/v1/currency/suscipit"
 );
 
 let headers = {
@@ -505,7 +451,7 @@ let headers = {
 };
 
 let body = {
-    "currency_id": 14
+    "currency_id": 4
 }
 
 fetch(url, {
@@ -521,14 +467,14 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->put(
-    'http://expense-manager-back.local/api/v1/currency/velit',
+    'http://expense-manager-back.local/api/v1/currency/suscipit',
     [
         'headers' => [
             'Content-Type' => 'application/json',
             'Authorization' => 'Bearer {token}',
         ],
         'json' => [
-            'currency_id' => 14,
+            'currency_id' => 4,
         ],
     ]
 );
@@ -540,9 +486,9 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://expense-manager-back.local/api/v1/currency/velit'
+url = 'http://expense-manager-back.local/api/v1/currency/suscipit'
 payload = {
-    "currency_id": 14
+    "currency_id": 4
 }
 headers = {
   'Content-Type': 'application/json',
@@ -577,13 +523,6 @@ Parameter | Type | Status | Description
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/expense?per_page=10&sort_col=created_at&sort_order=desc&search_col=category_name&search_by=Lent" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
 
 ```javascript
 const url = new URL(
@@ -680,15 +619,6 @@ Parameter | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X POST \
-    "http://expense-manager-back.local/api/v1/expense" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"expense_date":"2020-03-30 21:08:36","category_id":1,"amount":100,"spent_on":"Breakfast","remarks":"Coffee and toast"}'
-
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/expense"
@@ -782,13 +712,6 @@ Parameter | Type | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/expense/summary" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/summary"
@@ -850,13 +773,6 @@ response.json()
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/expense/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
 
 ```javascript
 const url = new URL(
@@ -924,15 +840,6 @@ Parameter | Status | Description
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X PUT \
-    "http://expense-manager-back.local/api/v1/expense/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"category_id":1,"amount":100,"spent_on":"Breakfast","remarks":"Coffee and toast"}'
-
-```
 
 ```javascript
 const url = new URL(
@@ -1028,13 +935,6 @@ Parameter | Type | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X DELETE \
-    "http://expense-manager-back.local/api/v1/expense/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/1"
@@ -1105,13 +1005,6 @@ Parameter | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/expense/category" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/category"
@@ -1173,15 +1066,6 @@ response.json()
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X POST \
-    "http://expense-manager-back.local/api/v1/expense/category" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"category_name":"Shopping"}'
-
-```
 
 ```javascript
 const url = new URL(
@@ -1260,13 +1144,6 @@ Parameter | Type | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/expense/category/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/category/1"
@@ -1333,15 +1210,6 @@ Parameter | Status | Description
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X PUT \
-    "http://expense-manager-back.local/api/v1/expense/category/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"category_name":"Travel"}'
-
-```
 
 ```javascript
 const url = new URL(
@@ -1425,13 +1293,6 @@ Parameter | Type | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X DELETE \
-    "http://expense-manager-back.local/api/v1/expense/category/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/expense/category/1"
@@ -1501,13 +1362,6 @@ Parameter | Status | Description
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/income?per_page=10&sort_col=created_at&sort_order=desc&search_col=category_name&search_by=Salary" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
 
 ```javascript
 const url = new URL(
@@ -1604,15 +1458,6 @@ Parameter | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X POST \
-    "http://expense-manager-back.local/api/v1/income" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"income_date":"2020-03-30 21:08:36","category_id":1,"amount":100,"source":"Salary","notes":"Through bank"}'
-
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/income"
@@ -1706,13 +1551,6 @@ Parameter | Type | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/income/summary" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/income/summary"
@@ -1774,13 +1612,6 @@ response.json()
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/income/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
 
 ```javascript
 const url = new URL(
@@ -1848,15 +1679,6 @@ Parameter | Status | Description
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X PUT \
-    "http://expense-manager-back.local/api/v1/income/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"income_date":"2020-03-30 21:08:36","category_id":1,"amount":100,"source":"Business","notes":"Cash"}'
-
-```
 
 ```javascript
 const url = new URL(
@@ -1956,13 +1778,6 @@ Parameter | Type | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X DELETE \
-    "http://expense-manager-back.local/api/v1/income/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/income/1"
@@ -2033,13 +1848,6 @@ Parameter | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/income/category" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/income/category"
@@ -2101,15 +1909,6 @@ response.json()
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X POST \
-    "http://expense-manager-back.local/api/v1/income/category" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"category_name":"Salary"}'
-
-```
 
 ```javascript
 const url = new URL(
@@ -2188,13 +1987,6 @@ Parameter | Type | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/income/category/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/income/category/1"
@@ -2261,15 +2053,6 @@ Parameter | Status | Description
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X PUT \
-    "http://expense-manager-back.local/api/v1/income/category/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"category_name":"Profit"}'
-
-```
 
 ```javascript
 const url = new URL(
@@ -2353,13 +2136,6 @@ Parameter | Type | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X DELETE \
-    "http://expense-manager-back.local/api/v1/income/category/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/income/category/1"
@@ -2430,13 +2206,6 @@ Parameter | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/report/expense/months/summary" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/report/expense/months/summary"
@@ -2499,13 +2268,6 @@ response.json()
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/report/income/months/summary" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/report/income/months/summary"
@@ -2567,13 +2329,6 @@ response.json()
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/report/transaction" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
 
 ```javascript
 const url = new URL(
@@ -2640,13 +2395,6 @@ response.json()
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/user" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/user"
@@ -2708,15 +2456,6 @@ response.json()
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X PUT \
-    "http://expense-manager-back.local/api/v1/user/password" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"old_password":"123456","new_password":"234567","confirm_password":"234567"}'
-
-```
 
 ```javascript
 const url = new URL(
@@ -2803,15 +2542,6 @@ Parameter | Type | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X PUT \
-    "http://expense-manager-back.local/api/v1/user/update" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"name":"Triss","email":"tiss@email.com","currency_id":13}'
-
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/user/update"
@@ -2897,13 +2627,6 @@ Parameter | Type | Status | Description
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
-```bash
-curl -X GET \
-    -G "http://expense-manager-back.local/api/v1/user/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}"
-```
-
 ```javascript
 const url = new URL(
     "http://expense-manager-back.local/api/v1/user/1"
@@ -2970,15 +2693,6 @@ Parameter | Status | Description
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
-
-```bash
-curl -X PUT \
-    "http://expense-manager-back.local/api/v1/user/1" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer {token}" \
-    -d '{"name":"Ciri","email":"cir@email.com","currency_id":1}'
-
-```
 
 ```javascript
 const url = new URL(

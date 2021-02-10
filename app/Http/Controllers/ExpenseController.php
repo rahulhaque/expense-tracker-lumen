@@ -22,7 +22,7 @@ class ExpenseController extends Controller
      * @queryParam search_col Column name to search Example: category_name
      * @queryParam search_by Text to search for Example: Lent
      *
-     * @url: /api/v1/expense
+     * @url /api/v1/expense
      *
      * @param Request $request
      * @return \Illuminate\Http\Response
@@ -76,7 +76,7 @@ class ExpenseController extends Controller
      * @bodyParam spent_on string required Expense reason Example: Breakfast
      * @bodyParam remarks string required Expense remarks Example: Coffee and toast
      *
-     * @url: /api/v1/expense
+     * @url /api/v1/expense
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -111,7 +111,7 @@ class ExpenseController extends Controller
      *
      * @urlParam id required Expense id to show Example: 1
      *
-     * @url: /api/v1/expense/{id}
+     * @url /api/v1/expense/{id}
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -130,7 +130,7 @@ class ExpenseController extends Controller
      * @bodyParam spent_on string required Expense reason Example: Breakfast
      * @bodyParam remarks string required Expense remarks Example: Coffee and toast
      *
-     * @url: /api/v1/expense/{id}
+     * @url /api/v1/expense/{id}
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
@@ -166,7 +166,7 @@ class ExpenseController extends Controller
      *
      * @urlParam id required Expense id to delete Example: 1
      *
-     * @url: /api/v1/expense/{id}
+     * @url /api/v1/expense/{id}
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -182,7 +182,7 @@ class ExpenseController extends Controller
     /**
      * Summary of expenses
      *
-     * @url: /api/v1/expense/summary
+     * @url /api/v1/expense/summary
      *
      * @return \Illuminate\Http\JsonResponse
      */
