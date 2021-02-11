@@ -17,7 +17,7 @@ class IncomeCategoryController extends Controller
     /**
      * Get income categories
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
      */
     public function index(Request $request)
@@ -44,7 +44,7 @@ class IncomeCategoryController extends Controller
      * @bodyParam category_name string required - Example: Salary
      *
      * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
@@ -73,7 +73,7 @@ class IncomeCategoryController extends Controller
      * @urlParam id required Category id to show Example: 1
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
@@ -88,7 +88,7 @@ class IncomeCategoryController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $id)
@@ -104,7 +104,7 @@ class IncomeCategoryController extends Controller
             ]
         ]);
 
-        $incomeCategoryById = TransactionCategory::find($id);
+        $incomeCategoryById = TransactionCategory::findOrFail($id);
         $incomeCategoryById->category_name = $request->category_name;
         $incomeCategoryById->updated_by = Auth::id();
         $incomeCategoryById->save();
@@ -118,12 +118,12 @@ class IncomeCategoryController extends Controller
      * @urlParam id required Category id to delete Example: 1
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
+        $incomeCategoryById = TransactionCategory::findOrFail($id);
         $incomeByCategoryId = IncomeExpense::where('transaction_type', 'Income')->where('category_id', $id)->first();
-        $incomeCategoryById = TransactionCategory::find($id);
 
         if ($incomeByCategoryId ||
             $incomeCategoryById->category_name == 'Salary' ||

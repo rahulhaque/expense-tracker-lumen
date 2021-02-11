@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class IncomeExpense extends Model
 {
+    public static $COLOR_PROFILE = [
+        'Income' => '#55dda9',
+        'Expense' => '#ffb102'
+    ];
+
     public function category()
     {
         return $this->belongsTo(TransactionCategory::class,'category_id');

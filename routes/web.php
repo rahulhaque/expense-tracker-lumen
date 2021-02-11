@@ -16,10 +16,12 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api/v1'], function () use ($router) {
+
     $router->post('/auth/login', 'AuthController@login');
     $router->patch('/auth/refresh', 'AuthController@refresh');
     $router->post('/auth/register', 'RegisterController@store');
     $router->post('/auth/logout', 'AuthController@logout');
+
 });
 
 $router->group(['prefix' => 'api/v1', 'middleware' => ['auth:api']], function () use ($router) {
@@ -63,4 +65,7 @@ $router->group(['prefix' => 'api/v1', 'middleware' => ['auth:api']], function ()
     $router->get('/report/expense/months/summary', 'ReportController@monthlyExpenseSummary');
     $router->get('/report/income/months/summary', 'ReportController@monthlyIncomeSummary');
     $router->get('/report/transaction', 'ReportController@transaction');
+
+    $router->get('/analytics/year', 'AnalyticsController@barChartData');
+
 });
