@@ -21,6 +21,71 @@ Welcome to the generated API reference.
 
 <!-- END_INFO -->
 
+#Analytics
+
+
+<!-- START_668bdee73452db687626bcaa909d9cb9 -->
+## Current &amp; last month expenses
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```javascript
+const url = new URL(
+    "http://expense-manager-back.local/api/v1/analytics/year"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://expense-manager-back.local/api/v1/analytics/year',
+    [
+        'headers' => [
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+```python
+import requests
+import json
+
+url = 'http://expense-manager-back.local/api/v1/analytics/year'
+headers = {
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()
+```
+
+
+
+### HTTP Request
+`GET api/v1/analytics/year`
+
+
+<!-- END_668bdee73452db687626bcaa909d9cb9 -->
+
 #Auth
 
 
@@ -179,9 +244,9 @@ let headers = {
 };
 
 let body = {
-    "name": "sed",
-    "email": "porro",
-    "password": "modi"
+    "name": "id",
+    "email": "voluptas",
+    "password": "quo"
 }
 
 fetch(url, {
@@ -203,9 +268,9 @@ $response = $client->post(
             'Content-Type' => 'application/json',
         ],
         'json' => [
-            'name' => 'sed',
-            'email' => 'porro',
-            'password' => 'modi',
+            'name' => 'id',
+            'email' => 'voluptas',
+            'password' => 'quo',
         ],
     ]
 );
@@ -219,9 +284,9 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/auth/register'
 payload = {
-    "name": "sed",
-    "email": "porro",
-    "password": "modi"
+    "name": "id",
+    "email": "voluptas",
+    "password": "quo"
 }
 headers = {
   'Content-Type': 'application/json'
@@ -441,7 +506,7 @@ response.json()
 
 ```javascript
 const url = new URL(
-    "http://expense-manager-back.local/api/v1/currency/suscipit"
+    "http://expense-manager-back.local/api/v1/currency/et"
 );
 
 let headers = {
@@ -451,7 +516,7 @@ let headers = {
 };
 
 let body = {
-    "currency_id": 4
+    "currency_id": 8
 }
 
 fetch(url, {
@@ -467,14 +532,14 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->put(
-    'http://expense-manager-back.local/api/v1/currency/suscipit',
+    'http://expense-manager-back.local/api/v1/currency/et',
     [
         'headers' => [
             'Content-Type' => 'application/json',
             'Authorization' => 'Bearer {token}',
         ],
         'json' => [
-            'currency_id' => 4,
+            'currency_id' => 8,
         ],
     ]
 );
@@ -486,9 +551,9 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://expense-manager-back.local/api/v1/currency/suscipit'
+url = 'http://expense-manager-back.local/api/v1/currency/et'
 payload = {
-    "currency_id": 4
+    "currency_id": 8
 }
 headers = {
   'Content-Type': 'application/json',

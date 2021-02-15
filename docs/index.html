@@ -49,6 +49,55 @@
 <p>Welcome to the generated API reference.
 <a href="http://expense-manager-back.local/docs/collection.json">Get Postman Collection</a></p>
 <!-- END_INFO -->
+<h1>Analytics</h1>
+<!-- START_668bdee73452db687626bcaa909d9cb9 -->
+<h2>Current &amp; last month expenses</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "http://expense-manager-back.local/api/v1/analytics/year"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://expense-manager-back.local/api/v1/analytics/year',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://expense-manager-back.local/api/v1/analytics/year'
+headers = {
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/v1/analytics/year</code></p>
+<!-- END_668bdee73452db687626bcaa909d9cb9 -->
 <h1>Auth</h1>
 <!-- START_2be1f0e022faf424f18f30275e61416e -->
 <h2>Get token</h2>
@@ -196,9 +245,9 @@ let headers = {
 };
 
 let body = {
-    "name": "sed",
-    "email": "porro",
-    "password": "modi"
+    "name": "id",
+    "email": "voluptas",
+    "password": "quo"
 }
 
 fetch(url, {
@@ -217,9 +266,9 @@ $response = $client-&gt;post(
             'Content-Type' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'sed',
-            'email' =&gt; 'porro',
-            'password' =&gt; 'modi',
+            'name' =&gt; 'id',
+            'email' =&gt; 'voluptas',
+            'password' =&gt; 'quo',
         ],
     ]
 );
@@ -230,9 +279,9 @@ import json
 
 url = 'http://expense-manager-back.local/api/v1/auth/register'
 payload = {
-    "name": "sed",
-    "email": "porro",
-    "password": "modi"
+    "name": "id",
+    "email": "voluptas",
+    "password": "quo"
 }
 headers = {
   'Content-Type': 'application/json'
@@ -425,7 +474,7 @@ response.json()</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-javascript">const url = new URL(
-    "http://expense-manager-back.local/api/v1/currency/suscipit"
+    "http://expense-manager-back.local/api/v1/currency/et"
 );
 
 let headers = {
@@ -435,7 +484,7 @@ let headers = {
 };
 
 let body = {
-    "currency_id": 4
+    "currency_id": 8
 }
 
 fetch(url, {
@@ -448,14 +497,14 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://expense-manager-back.local/api/v1/currency/suscipit',
+    'http://expense-manager-back.local/api/v1/currency/et',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Authorization' =&gt; 'Bearer {token}',
         ],
         'json' =&gt; [
-            'currency_id' =&gt; 4,
+            'currency_id' =&gt; 8,
         ],
     ]
 );
@@ -464,9 +513,9 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://expense-manager-back.local/api/v1/currency/suscipit'
+url = 'http://expense-manager-back.local/api/v1/currency/et'
 payload = {
-    "currency_id": 4
+    "currency_id": 8
 }
 headers = {
   'Content-Type': 'application/json',

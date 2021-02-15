@@ -41,7 +41,7 @@ class AnalyticsController extends Controller
                 DB::raw('SUM(income_expenses.amount) AS total'),
                 DB::raw('DATE_FORMAT(income_expenses.transaction_date, "%Y-%m") AS transaction_month')
             )
-            ->groupBy('currency_id', 'transaction_month')
+            ->groupBy('currency_id', 'transaction_month', 'transaction_type')
             ->get();
 
         $userCurrencies = $userIncomeExpenses->pluck('currency_code')->unique();

@@ -2,11 +2,49 @@
     "variables": [],
     "info": {
         "name": "Expense Tracker API",
-        "_postman_id": "2236233d-6f84-4504-95e1-e62b6785e8fb",
+        "_postman_id": "7238c762-d29e-4abe-8487-99f9d4cc07b6",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
     "item": [
+        {
+            "name": "Analytics",
+            "description": "",
+            "item": [
+                {
+                    "name": "Current & last month expenses",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/analytics\/year",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
         {
             "name": "Auth",
             "description": "",
@@ -93,7 +131,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"sed\",\n    \"email\": \"porro\",\n    \"password\": \"modi\"\n}"
+                            "raw": "{\n    \"name\": \"id\",\n    \"email\": \"voluptas\",\n    \"password\": \"quo\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -213,7 +251,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "suscipit",
+                                    "value": "et",
                                     "description": "User id of whom to update currency"
                                 }
                             ]
@@ -235,7 +273,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"currency_id\": 4\n}"
+                            "raw": "{\n    \"currency_id\": 8\n}"
                         },
                         "description": "",
                         "response": []
