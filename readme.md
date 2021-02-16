@@ -13,6 +13,7 @@ Basic features include -
 - Income/Expense Category
 - Income/Expense Tracking
 - Currency Support
+- Analytics
 
 ## Install Instruction
 
@@ -36,6 +37,8 @@ The static API documentation can be found found at `/public/docs` folder.
 - [Expense Tracker Web 💰 React](https://github.com/rahulhaque/expense-tracker-react)
 
 ## To-do
+
+- ~~React Frontend~~
 
 - Build Frontend - Vue or React Native (Maybe both)
 
