@@ -1,5 +1,6 @@
 <?php
 
+use App\TransactionCategory;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -44,12 +45,10 @@ class CreateTransactionCategoriesTable extends Migration
     public function initializeTable($table)
     {
         DB::table($table)->truncate();
-        DB::table($table)->insert([
-            ['category_name' => 'Lent', 'category_type' => 'Expense', 'created_by' => 1],
-            ['category_name' => 'Loan Return', 'category_type' => 'Expense', 'created_by' => 1],
-            ['category_name' => 'Salary', 'category_type' => 'Income', 'created_by' => 1],
-            ['category_name' => 'Loan', 'category_type' => 'Income', 'created_by' => 1],
-            ['category_name' => 'Lent Return', 'category_type' => 'Income', 'created_by' => 1]
-        ]);
+        DB::table($table)->insert(
+            collect(TransactionCategory::$DEFAULT_CATEGORIES)->map(function ($item) {
+                return array_merge($item, ['created_by' => 1]);
+            })->toArray()
+        );
     }
 }

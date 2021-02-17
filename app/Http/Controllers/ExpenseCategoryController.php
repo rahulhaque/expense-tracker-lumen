@@ -17,7 +17,7 @@ class ExpenseCategoryController extends Controller
     /**
      * Get expense categories
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
      */
     public function index(Request $request)
@@ -44,7 +44,7 @@ class ExpenseCategoryController extends Controller
      * @bodyParam category_name string required - Example: Shopping
      *
      * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
@@ -73,7 +73,7 @@ class ExpenseCategoryController extends Controller
      * @urlParam id required Category id to show Example: 1
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
@@ -88,7 +88,7 @@ class ExpenseCategoryController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $id)
@@ -104,7 +104,7 @@ class ExpenseCategoryController extends Controller
             ]
         ]);
 
-        $expenseCategoryById = TransactionCategory::find($id);
+        $expenseCategoryById = TransactionCategory::findOrFail($id);
         $expenseCategoryById->category_name = $request->category_name;
         $expenseCategoryById->updated_by = Auth::id();
         $expenseCategoryById->save();
@@ -118,18 +118,13 @@ class ExpenseCategoryController extends Controller
      * @urlParam id required Category id to delete Example: 1
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        $expenseByCategoryId = IncomeExpense::where('transaction_type', 'Expense')->where('category_id', $id)->first();
-        $expenseCategoryById = TransactionCategory::find($id);
+        $expenseCategoryById = TransactionCategory::deletable()->where('created_by', Auth::id())->findOrFail($id);
 
-        if ($expenseByCategoryId ||
-            $expenseCategoryById->category_name == 'Loan Return' ||
-            $expenseCategoryById->category_name == 'Lent') {
-            return response()->json(['data' => 'expense_category_in_use'], 409);
-        } elseif (TransactionCategory::where('id', $id)->where('created_by', Auth::id())->delete()) {
+        if ($expenseCategoryById->delete()) {
             return response()->json(['data' => 'expense_category_deleted'], 200);
         } else {
             return response()->json(['error' => 'unauthorised'], 403);

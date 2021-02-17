@@ -122,15 +122,9 @@ class IncomeCategoryController extends Controller
      */
     public function destroy($id)
     {
-        $incomeCategoryById = TransactionCategory::findOrFail($id);
-        $incomeByCategoryId = IncomeExpense::where('transaction_type', 'Income')->where('category_id', $id)->first();
+        $incomeCategoryById = TransactionCategory::deletable()->where('created_by', Auth::id())->findOrFail($id);
 
-        if ($incomeByCategoryId ||
-            $incomeCategoryById->category_name == 'Salary' ||
-            $incomeCategoryById->category_name == 'Loan' ||
-            $incomeCategoryById->category_name == 'Lent Return') {
-            return response()->json(['data' => 'income_category_in_use'], 409);
-        } elseif (TransactionCategory::where('id', $id)->where('created_by', Auth::id())->delete()) {
+        if ($incomeCategoryById->delete()) {
             return response()->json(['data' => 'income_category_deleted'], 200);
         } else {
             return response()->json(['error' => 'unauthorised'], 403);

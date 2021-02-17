@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\TransactionCategory;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,7 @@ class RegisterController extends Controller
      * @bodyParam email string required User email
      * @bodyParam password string required User password
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      * @throws \Illuminate\Validation\ValidationException
      */
@@ -39,13 +40,11 @@ class RegisterController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        DB::table('transaction_categories')->insert([
-            ['category_name' => 'Lent', 'category_type' => 'Expense', 'created_by' => $user->id],
-            ['category_name' => 'Loan Return', 'category_type' => 'Expense', 'created_by' => $user->id],
-            ['category_name' => 'Salary', 'category_type' => 'Income', 'created_by' => $user->id],
-            ['category_name' => 'Loan', 'category_type' => 'Income', 'created_by' => $user->id],
-            ['category_name' => 'Lent Return', 'category_type' => 'Income', 'created_by' => $user->id]
-        ]);
+        DB::table('transaction_categories')->insert(
+            collect(TransactionCategory::$DEFAULT_CATEGORIES)->map(function ($item) use ($user) {
+                return array_merge($item, ['created_by' => $user->id]);
+            })->toArray()
+        );
 
         return response(['data' => 'registration_successful'], 201);
     }
