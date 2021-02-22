@@ -13,7 +13,7 @@ Basic features include -
 - Income/Expense Category
 - Income/Expense Tracking
 - Currency Support
-- Analytics
+- Analytic Charts
 
 ## Install Instruction
 

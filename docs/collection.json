@@ -2,49 +2,11 @@
     "variables": [],
     "info": {
         "name": "Expense Tracker API",
-        "_postman_id": "7238c762-d29e-4abe-8487-99f9d4cc07b6",
+        "_postman_id": "97b4b051-fc54-4112-b07a-85755912bfdf",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
     "item": [
-        {
-            "name": "Analytics",
-            "description": "",
-            "item": [
-                {
-                    "name": "Current & last month expenses",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "expense-manager-back.local",
-                            "path": "api\/v1\/analytics\/year",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {token}"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                }
-            ]
-        },
         {
             "name": "Auth",
             "description": "",
@@ -131,7 +93,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"id\",\n    \"email\": \"voluptas\",\n    \"password\": \"quo\"\n}"
+                            "raw": "{\n    \"name\": \"ipsum\",\n    \"email\": \"non\",\n    \"password\": \"nostrum\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -177,6 +139,128 @@
                             "host": "expense-manager-back.local",
                             "path": "api\/v1\/user\/profile",
                             "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Charts",
+            "description": "",
+            "item": [
+                {
+                    "name": "Income expense categories",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/chart\/income-expense\/category",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Month wise",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/chart\/income-expense\/month-wise",
+                            "query": [
+                                {
+                                    "key": "month",
+                                    "value": "6",
+                                    "description": "Number of month to get data (default: 12)",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Month and category wise",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/chart\/income-expense\/category-wise",
+                            "query": [
+                                {
+                                    "key": "month",
+                                    "value": "6",
+                                    "description": "Number of month to get data (default: 12)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "category_id",
+                                    "value": "6",
+                                    "description": "Category id to get data",
+                                    "disabled": false
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [
@@ -251,7 +335,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "et",
+                                    "value": "id",
                                     "description": "User id of whom to update currency"
                                 }
                             ]
@@ -273,7 +357,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"currency_id\": 8\n}"
+                            "raw": "{\n    \"currency_id\": 18\n}"
                         },
                         "description": "",
                         "response": []

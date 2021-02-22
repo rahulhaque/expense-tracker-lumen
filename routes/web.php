@@ -66,6 +66,8 @@ $router->group(['prefix' => 'api/v1', 'middleware' => ['auth:api']], function ()
     $router->get('/report/income/months/summary', 'ReportController@monthlyIncomeSummary');
     $router->get('/report/transaction', 'ReportController@transaction');
 
-    $router->get('/analytics/year', 'AnalyticsController@barChartData');
+    $router->get('/chart/income-expense/category', 'ChartController@incomeExpenseCategories');
+    $router->get('/chart/income-expense/month-wise', 'ChartController@incomeExpenseDataMonthWise');
+    $router->get('/chart/income-expense/category-wise', 'ChartController@incomeExpenseDataMonthAndCategoryWise');
 
 });
