@@ -26,7 +26,9 @@ class ChartController extends Controller
      */
     public function incomeExpenseCategories()
     {
-        $incomeExpenseCategories = TransactionCategory::where('created_by', Auth::id())->get();
+        $incomeExpenseCategories = TransactionCategory::where('created_by', Auth::id())
+            ->orderBy('category_name', 'ASC')
+            ->get();
 
         return response()->json($incomeExpenseCategories);
     }
